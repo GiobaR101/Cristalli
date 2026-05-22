@@ -1,0 +1,474 @@
+Ecco la scheda per la **Tormalina Rosa**, realizzata sulla falsariga del file `CL.html` che mi hai fornito, con la stessa struttura e stile coerente al tuo sito.
+```html
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Tormalina Rosa : Pietra del Cuore, Amore Incondizionato e Guarigione Emotiva</title>
+    
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(145deg, #fdf2f5 0%, #fce4ec 100%);
+            color: #5a3a4a;
+            line-height: 1.5;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        /* ===========================
+           MENU (identico a CL.html)
+        =========================== */
+        nav { 
+            background: #2c3e2c; 
+            overflow: visible; 
+            position: relative; 
+            z-index: 10;
+        }
+        
+        nav > a, .dropdown > a { 
+            color: white; 
+            padding: 14px 20px; 
+            display: inline-block; 
+            text-decoration: none; 
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+        }
+        
+        nav > a:hover, .dropdown > a:hover {
+            background-color: #3e553e;
+        }
+        
+        .dropdown { 
+            display: inline-block; 
+            position: relative; 
+        }
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: #f9f9f9; 
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a { 
+            color: black; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+            text-align: left;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .dropdown-content a:hover { 
+            background-color: #ddd; 
+        }
+        
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 254, 0.96);
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        /* Banda rosa delicato / tormalina rosa */
+        .hero {
+            background: linear-gradient(115deg, #d48a9e 0%, #e8aec2 45%, #f5ccda 100%);
+            padding: 2rem 2rem 1.8rem;
+            text-align: center;
+            border-bottom: 6px solid #ffefd0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #4a2a3a;
+            text-shadow: 2px 2px 12px rgba(255, 235, 225, 0.8);
+            word-break: keep-all;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #3a2a2e;
+            font-style: italic;
+            margin-top: 0.5rem;
+            font-weight: 400;
+            text-shadow: 1px 1px 0 rgba(255, 240, 235, 0.6);
+        }
+
+        .content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        .intro-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2.8rem;
+            align-items: flex-start;
+        }
+
+        .chem-box {
+            flex: 1.5;
+            background: #fefefe;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.06);
+            border-left: 7px solid #e8aec2;
+            transition: transform 0.2s ease;
+        }
+
+        .chem-box:hover {
+            transform: translateY(-3px);
+        }
+
+        .trad-box {
+            flex: 1;
+            background: #fefefe;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.06);
+            border-right: 7px solid #f5ccda;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            border-left: 5px solid #d48a9e;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #8a5a6a;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 1rem 0 0.7rem 0;
+            color: #b87a8a;
+            display: inline-block;
+            border-bottom: 2px dotted #f5ccda;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #fdf0f4 0%, #fdf0f4 40%, transparent 80%);
+            padding: 0.2rem 0.3rem;
+            font-weight: 500;
+            border-radius: 8px;
+        }
+
+        .chem-prop {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.2rem 0;
+        }
+
+        .badge {
+            background: #fdf0f4;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #a86a7a;
+            font-family: monospace;
+        }
+
+        .citazione {
+            font-style: normal;
+            background: #fdf5f8;
+            border-radius: 28px;
+            padding: 0.5rem 1.2rem;
+            margin: 1rem 0;
+            font-weight: 500;
+            border-left: 3px solid #e8aec2;
+        }
+
+        footer {
+            background: #fdf5f8;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.85rem;
+            color: #a87a8a;
+            border-top: 1px solid #f0d5e0;
+            letter-spacing: 0.3px;
+        }
+
+        hr {
+            margin: 1.2rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #f0ccda, #fce4ec, #f0ccda);
+        }
+
+        /* STILI PER IMMAGINI */
+        .hero-img {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .hero-img img {
+            max-width: 90%;
+            max-height: 220px;
+            width: auto;
+            border-radius: 48px;
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.25);
+            border: 3px solid rgba(255, 245, 240, 0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-img img:hover {
+            transform: scale(1.01);
+        }
+
+        .mid-img {
+            margin: 2rem 0 1.8rem 0;
+            text-align: center;
+        }
+
+        .mid-img img {
+            max-width: 85%;
+            border-radius: 32px;
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
+            border: 2px solid #f5d5e0;
+            transition: 0.2s;
+        }
+
+        .floating-img {
+            margin: 1.2rem 0 1.2rem 0;
+            text-align: center;
+        }
+
+        .floating-img img {
+            max-width: 80%;
+            border-radius: 36px;
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.12);
+            border: 2px solid #f5dde5;
+        }
+
+        .img-caption {
+            font-size: 0.75rem;
+            color: #b88a9a;
+            margin-top: 8px;
+            font-style: italic;
+            letter-spacing: 0.3px;
+        }
+
+        .tradizione {
+            background: #fdfafc;
+            border-radius: 1.2rem;
+            padding: 1rem 1.6rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 12px -8px rgba(0, 0, 0, 0.04);
+        }
+
+        .chakra-cuore {
+            display: inline-flex;
+            align-items: center;
+            background: #f0d5e0;
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            gap: 6px;
+            margin-top: 0.4rem;
+            color: #a86a7a;
+        }
+
+        @media (max-width: 780px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .intro-grid {
+                flex-direction: column;
+            }
+            .hero-img img {
+                max-height: 160px;
+            }
+            .mid-img img, .floating-img img {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    
+    <div class="dropdown">
+        <a href="#">Minerali</a>
+        <div class="dropdown-content">
+            <a href="QA.html">Ametista</a>
+            <a href="CL.html">Celestite</a>
+            <a href="LP.html">Lapislazzuli</a>
+            <a href="OT.html">Occhio di Tigre</a>
+            <a href="QC.html">Quarzo Citrino</a>
+            <a href="QI.html">Quarzo Ialino</a>
+            <a href="QR.html">Quarzo Rosa</a>
+            <a href="TR.html">Tormalina Rosa</a>
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <a href="#">Approfondimenti</a>
+        <div class="dropdown-content">
+            <a href="lavorazione.html">🔨 Lavorazione artigianale</a>
+            <a href="burattatura.html">⚙️ Burattatura</a>
+            <a href="pietre-preziose.html">💎 Pietre preziose e tagli</a>
+            <a href="sintetiche.html">🔬 Pietre sintetiche</a>
+        </div>
+    </div>
+    
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="photo.html">Photogallery</a>
+</nav>
+
+<div class="container">
+    <div class="hero">
+        <h1>🌸 TORMALINA ROSA 🌸</h1>
+        <div class="sub">pietra del cuore · amore incondizionato, guarigione emotiva e dolcezza</div>
+        <!-- IMMAGINE TR01.jpg all'inizio -->
+        <div class="hero-img">
+            <img src="images/TR01.jpg" alt="Tormalina Rosa cristallo tenero e luminoso" onerror="this.style.opacity='0.5'; this.alt='[Immagine TR01 non trovata]'">
+            <div class="img-caption">✨ Dolcezza e luce – l’energia compassionevole della Tormalina Rosa ✨</div>
+        </div>
+    </div>
+    <div class="content">
+        <!-- sezione chimica + tradizione -->
+        <div class="intro-grid">
+            <div class="chem-box">
+                <div class="section-title">⚗️ Natura chimica</div>
+                <p>La <strong class="highlight">tormalina rosa</strong> (nota anche come <strong>rubellite</strong>) è una varietà della famiglia delle <strong>tormaline</strong>, un gruppo di silicati complessi di boro e alluminio, con formula generale <strong class="highlight">Na(Li,Al)₃Al₆(BO₃)₃Si₆O₁₈(OH)₄</strong>. Il suo caratteristico colore rosa, che spazia dal rosa pallido al rosso intenso (rubellite), è dovuto principalmente alla presenza di <strong>manganese (Mn²⁺)</strong> o, in alcuni casi, a tracce di litio. Le tormaline rosa più pregiate presentano una tonalità vivace e satura, senza venature scure.</p>
+                <div class="chem-prop">
+                    <span class="badge">🔹 Sistema trigonale</span>
+                    <span class="badge">🔹 Durezza Mohs: 7 – 7,5</span>
+                    <span class="badge">🔹 Densità: 3,02 – 3,26 g/cm³</span>
+                    <span class="badge">🔹 Pleocroismo pronunciato</span>
+                </div>
+                <p>La tormalina rosa si forma in <strong>pegmatiti granitiche</strong> e in rocce metamorfiche, spesso associata a quarzo, lepidolite, albite e altre tormaline. I cristalli possono presentare fenomeno di <strong>pleocroismo</strong>: osservati da diverse angolazioni, mostrano variazioni di intensità del colore. I principali giacimenti si trovano in <strong>Brasile</strong> (Minas Gerais), <strong>Madagascar</strong>, <strong>Afghanistan</strong>, <strong>Mozambico</strong> e <strong>Stati Uniti</strong> (California).</p>
+                <div class="citazione">
+                    💗 <strong>Curiosità mineralogica</strong> — La tormalina è una delle poche gemme a possedere proprietà <strong>piroelettriche</strong> (si carica elettricamente se riscaldata) e <strong>piezoelettriche</strong>. Il nome deriva dal singalese <em>tura mali</em> ("pietra dai colori misti"), in riferimento alla straordinaria varietà cromatica della famiglia.
+                </div>
+            </div>
+            <div class="trad-box">
+                <div class="section-title">📜 Pietra del cuore e della compassione</div>
+                <p><strong>Nell’antichità la tormalina rosa era considerata una pietra di grande potere spirituale, capace di risvegliare la compassione e la capacità di amare incondizionatamente.</strong> Veniva utilizzata da guaritori e sciamani per lenire le ferite emotive e aprire il cuore alla gioia. Nella tradizione dell'antico Egitto, si credeva che la tormalina avesse attraversato un arcobaleno nel suo viaggio dalla Terra al Sole, assorbendo tutti i colori.</p>
+                <p>In cristalloterapia, la tormalina rosa è la <strong>pietra dell’amore incondizionato, dell’autocompassione e della guarigione emotiva</strong>. Aiuta a rilasciare vecchi dolori, a perdonare e a ritrovare la fiducia in sé stessi. La sua vibrazione dolce ma potente è particolarmente indicata per chi ha subito traumi emotivi o fatica ad amarsi.</p>
+                <div class="chakra-cuore">
+                    💚 Quarto chakra · Anahata (chakra del cuore) 💚
+                </div>
+                <p><strong>Posizionata sul quarto chakra (Anahata, il chakra del cuore)</strong> favorisce l'apertura emotiva, la guarigione delle ferite interiori, la capacità di dare e ricevere amore senza condizioni, e aiuta a bilanciare le emozioni, trasformando la paura in coraggio e la tristezza in gioia.</p>
+            </div>
+        </div>
+
+        <!-- IMMAGINE TR02.jpg a circa 1/3 della scheda -->
+        <div class="mid-img">
+            <img src="images/TR02.jpg" alt="Tormalina Rosa levigata o cristallo sfaccettato" onerror="this.style.opacity='0.5'; this.alt='[Immagine TR02 non trovata]'">
+            <div class="img-caption">✦ Cuore di cristallo – guarigione emotiva e amore senza confini ✦</div>
+        </div>
+
+        <!-- integrazione del testo tradizionale e simbolismo -->
+        <div class="tradizione">
+            <span class="subtitle">💞 Amore, guarigione e apertura del cuore 💞</span>
+            <p style="margin-top: 0.5rem;">La tormalina rosa è da secoli considerata una delle pietre più potenti per il lavoro sul cuore e sulle emozioni. La sua energia agisce come un balsamo sull'anima, sciogliendo blocchi emotivi, paure e risentimenti. È particolarmente indicata per chi vive periodi di tristezza, solitudine o stanchezza emotiva, poiché infonde una sensazione di calore, protezione e fiducia nel futuro.</p>
+            <p><strong>Tenere una tormalina rosa sul comodino o vicino al letto si ritiene aiuti a dormire serenamente e a risvegliarsi con il cuore leggero</strong>, favorendo sogni ristoratori e una maggiore consapevolezza emotiva al risveglio. Portata con sé, invita a relazioni più autentiche e a un amore più profondo per sé e per gli altri.</p>
+            <hr>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;">
+                <div style="flex:1; min-width: 180px;">
+                    <strong>💗 Benefici simbolici:</strong>
+                    <ul style="margin-top: 8px; margin-left: 1.2rem;">
+                        <li>Amore incondizionato e autocompassione</li>
+                        <li>Guarigione delle ferite emotive</li>
+                        <li>Perdono e riconciliazione</li>
+                        <li>Fiducia in sé e serenità interiore</li>
+                    </ul>
+                </div>
+                <div style="flex:1; min-width: 180px;">
+                    <strong>🔮 Utilizzo pratico:</strong>
+                    <ul style="margin-top: 8px; margin-left: 1.2rem;">
+                        <li>Sul comodino per sogni sereni</li>
+                        <li>Sul chakra del cuore durante la meditazione</li>
+                        <li>In camera da letto per armonia affettiva</li>
+                        <li>Come gioiello per attrarre relazioni sincere</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione che integra il testo di riferimento -->
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.8rem; margin: 1rem 0 0.5rem 0; border: 1px solid #f5ccda;">
+            <div class="section-title" style="border-left-color: #d48a9e;">📖 TORMALINA ROSA... in breve</div>
+            <div style="font-size: 1rem; line-height: 1.6;">
+                <p style="margin-bottom: 1rem;"><em>“Nell’antichità la tormalina era considerata la pietra che aveva attraversato l’arcobaleno, assorbendo tutti i colori. La varietà rosa era particolarmente amata per la sua capacità di risvegliare la compassione e l’amore incondizionato.</em></p>
+                <p style="margin-bottom: 1rem;">In cristalloterapia, la tormalina rosa è la pietra dell’amore incondizionato, dell’autocompassione e della guarigione emotiva. Aiuta a rilasciare vecchi dolori, a perdonare e a ritrovare la fiducia in sé stessi.</p>
+                <p style="margin-bottom: 1rem;">Tenere una tormalina rosa sul comodino o vicino al letto si ritiene aiuti a dormire serenamente e a risvegliarsi con il cuore leggero.</p>
+                <p style="margin-bottom: 1rem;">Posizionata sul quarto chakra (Anahata, chakra del cuore) favorisce l’apertura emotiva, la guarigione delle ferite interiori, la capacità di dare e ricevere amore senza condizioni, trasformando la paura in coraggio e la tristezza in gioia.”</p>
+                <hr style="margin: 0.5rem 0 0.2rem 0;">
+                <div style="display: flex; justify-content: flex-end; font-size: 0.85rem; color: #c88a9a;">✧ la carezza della terra sull'anima ✧</div>
+            </div>
+        </div>
+
+        <!-- IMMAGINE TR03.jpg a circa 2/3 della scheda -->
+        <div class="floating-img">
+            <img src="images/TR03.jpg" alt="Tormalina Rosa grezza e lavorata" onerror="this.style.opacity='0.5'; this.alt='[Immagine TR03 non trovata]'">
+            <div class="img-caption">❀ Amore che guarisce – compassione e apertura del cuore ❀</div>
+        </div>
+
+        <!-- box conclusivi (cura, varietà, scienza e simbolo) -->
+        <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 2rem; justify-content: space-between;">
+            <div style="flex:1; background: #fdf5f8; border-radius: 1rem; padding: 1rem 1.3rem;">
+                <span style="font-size: 1.4rem;">💎</span>
+                <h3 style="margin: 0.3rem 0 0.5rem 0; font-size: 1.2rem;">Purezza e cura</h3>
+                <p style="font-size: 0.9rem;">La tormalina rosa è resistente (durezza 7-7,5). Puoi pulirla con acqua tiepida e sapone neutro, usando un panno morbido. Evita sbalzi termici e urti violenti. Ricaricala alla luce solare del mattino o al chiaro di luna. Non teme l’acqua, ma evita immersioni prolungate.</p>
+            </div>
+            <div style="flex:1; background: #fdf5f8; border-radius: 1rem; padding: 1rem 1.3rem;">
+                <span style="font-size: 1.4rem;">🌍</span>
+                <h3 style="margin: 0.3rem 0 0.5rem 0; font-size: 1.2rem;">Giacimenti e varietà</h3>
+                <p style="font-size: 0.9rem;">I migliori cristalli di tormalina rosa provengono dal <strong>Brasile</strong> (Minas Gerais), <strong>Madagascar</strong>, <strong>Afghanistan</strong>, <strong>Mozambico</strong> e <strong>California</strong>. La varietà più pregiata è la <strong>rubellite</strong>, dal colore rosso intenso, molto rara e ricercata in gemmologia.</p>
+            </div>
+            <div style="flex:1; background: #fdf5f8; border-radius: 1rem; padding: 1rem 1.3rem;">
+                <span style="font-size: 1.4rem;">💗</span>
+                <h3 style="margin: 0.3rem 0 0.5rem 0; font-size: 1.2rem;">Scienza e simbolo</h3>
+                <p style="font-size: 0.9rem;">La mineralogia spiega il colore rosa con la presenza di manganese; la tradizione la associa all’amore e alla guarigione del cuore. Un perfetto connubio tra chimica e spiritualità, ideale per chi cerca equilibrio emotivo e relazioni autentiche.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        🌸 Tormalina Rosa – pietra dell’amore incondizionato e della guarigione emotiva · Durezza 7-7,5 · Colore dal rosa pallido al rosso rubellite 🌸<br>
+        Testo ispirato a fonti mineralogiche, tradizioni antiche e repertori di cristalloterapia.
+    </footer>
+</div>
+</body>
+</html>
+```
