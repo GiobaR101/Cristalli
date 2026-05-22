@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Photogallery - I Cristalli di GiobaR</title>
+    
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===========================
+           BASE - stesso sfondo animato di index.html
+        =========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(
+                120deg,
+                #c9a85f,
+                #d9a300,
+                #b7d4f0,
+                #c8b0e8,
+                #c9a85f
+            );
+            background-size: 500% 500%;
+            animation: mineralShift 22s ease-in-out infinite;
+        }
+        
+        @keyframes mineralShift {
+            0%   { background-position: 0% 50%; }
+            25%  { background-position: 50% 50%; }
+            50%  { background-position: 100% 50%; }
+            75%  { background-position: 50% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* ===========================
+           MENU (aggiornato con Approfondimenti)
+        =========================== */
+        nav { 
+            background: #2c3e2c; 
+            overflow: visible; 
+            position: relative; 
+            z-index: 10;
+        }
+        
+        nav > a, .dropdown > a { 
+            color: white; 
+            padding: 14px 20px; 
+            display: inline-block; 
+            text-decoration: none; 
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+        }
+        
+        nav > a:hover, .dropdown > a:hover {
+            background-color: #3e553e;
+        }
+        
+        .dropdown { 
+            display: inline-block; 
+            position: relative; 
+        }
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: #f9f9f9; 
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a { 
+            color: black; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+            text-align: left;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .dropdown-content a:hover { 
+            background-color: #ddd; 
+        }
+        
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+        
+        /* ===========================
+           CONTENITORE PRINCIPALE
+        =========================== */
+        .content {
+            padding: 30px 20px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* ===========================
+           TITOLI (stile index)
+        =========================== */
+        .geode {
+            font-weight: bold;
+            color: #2E6DB4;
+            text-shadow:
+                0 0 6px rgba(255, 255, 255, 0.9),
+                0 0 12px rgba(255, 180, 255, 0.7),
+                0 0 18px rgba(150, 200, 255, 0.6),
+                0 0 25px rgba(255, 220, 150, 0.5),
+                0 0 35px rgba(200, 150, 255, 0.4),
+                2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.4rem;
+            letter-spacing: 1px;
+        }
+        
+        .title-light {
+            color: #2E6DB4;
+        }
+        
+        .shadow-contrast {
+            text-shadow:
+                2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+            color: #2E6DB4;
+        }
+        
+        .brand-small {
+            font-size: 1.2rem;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            text-align: center;
+            color: #2E6DB4;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+        
+        /* ===========================
+           CAROSELLO A 3 IMMAGINI (centrale più grande)
+        =========================== */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .carousel-track {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            transition: all 0.5s ease;
+        }
+        
+        .carousel-card {
+            flex: 0 0 auto;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(2px);
+            cursor: pointer;
+        }
+        
+        /* immagine laterale (sinistra e destra) */
+        .carousel-card.side {
+            width: 220px;
+            opacity: 0.75;
+            transform: scale(0.85);
+            filter: brightness(0.9);
+        }
+        
+        /* immagine centrale */
+        .carousel-card.center {
+            width: 380px;
+            transform: scale(1);
+            opacity: 1;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            z-index: 2;
+        }
+        
+        .carousel-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            transition: transform 0.3s;
+        }
+        
+        .carousel-card.center img {
+            aspect-ratio: 1 / 1;
+        }
+        
+        .carousel-card.side img {
+            aspect-ratio: 1 / 1;
+        }
+        
+        /* hover effetti */
+        .carousel-card:hover {
+            filter: brightness(1.02);
+        }
+        
+        /* FRECCE DI NAVIGAZIONE */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 20;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            font-weight: bold;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(0,0,0,0.85);
+            transform: translateY(-50%) scale(1.05);
+        }
+        
+        .nav-left {
+            left: 10px;
+        }
+        
+        .nav-right {
+            right: 10px;
+        }
+        
+        /* PALLINI DI NAVIGAZIONE */
+        .dots-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px 0 20px;
+            flex-wrap: wrap;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,240,0.6);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 4px rgba(0,0,0,0.3);
+        }
+        
+        .dot.active {
+            background: #ffdd99;
+            width: 28px;
+            border-radius: 20px;
+            background: #ffd966;
+            box-shadow: 0 0 12px rgba(255,220,100,0.8);
+        }
+        
+        .dot:hover {
+            background: #ffd580;
+            transform: scale(1.2);
+        }
+        
+        /* CONTROLLI AUTOPLAY / PAUSA */
+        .autoplay-control {
+            text-align: center;
+            margin: 15px 0 10px;
+        }
+        
+        .autoplay-btn {
+            background: rgba(0,0,0,0.55);
+            border: none;
+            color: white;
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            transition: all 0.2s;
+            letter-spacing: 1px;
+        }
+        
+        .autoplay-btn:hover {
+            background: rgba(0,0,0,0.8);
+            transform: scale(1.02);
+        }
+        
+        /* info contatore */
+        .counter-info {
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem;
+            color: #2c5a2c;
+            background: rgba(255,255,240,0.7);
+            display: inline-block;
+            padding: 5px 18px;
+            border-radius: 40px;
+            backdrop-filter: blur(3px);
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #2d4a2d;
+            background: rgba(255,255,245,0.5);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 6px 18px;
+            border-radius: 50px;
+            backdrop-filter: blur(2px);
+        }
+        
+        /* ===========================
+           RESPONSIVE (smartphone/tablet)
+        =========================== */
+        @media (max-width: 850px) {
+            .carousel-card.center {
+                width: 280px;
+            }
+            .carousel-card.side {
+                width: 160px;
+            }
+            .carousel-track {
+                gap: 12px;
+            }
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+            }
+            .cursive {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 650px) {
+            .carousel-card.center {
+                width: 220px;
+            }
+            .carousel-card.side {
+                width: 120px;
+            }
+            .carousel-track {
+                gap: 8px;
+            }
+            .nav-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+            .dots-container {
+                gap: 8px;
+            }
+            .dot.active {
+                width: 22px;
+            }
+            .brand-small {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .carousel-card.center {
+                width: 180px;
+            }
+            .carousel-card.side {
+                width: 90px;
+            }
+            .carousel-track {
+                gap: 6px;
+            }
+            .nav-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+            .content {
+                padding: 20px 12px 40px;
+            }
+        }
+        
+        /* nascondi barra di scorrimento ma mantenendo funzionalità */
+        .carousel-container {
+            cursor: grab;
+        }
+        
+        /* messaggio di caricamento */
+        .loading-msg {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            padding: 50px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 30px;
+        }
+        
+        .center-text {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    
+    <div class="dropdown">
+        <a href="#">Minerali</a>
+        <div class="dropdown-content">
+            <a href="QA.html">Ametista</a>
+            <a href="CL.html">Celestite</a>
+            <a href="LP.html">Lapislazzuli</a>
+            <a href="OT.html">Occhio di Tigre</a>
+            <a href="QC.html">Quarzo Citrino</a>
+            <a href="QI.html">Quarzo Ialino</a>
+            <a href="QR.html">Quarzo Rosa</a>
+            <a href="TR.html">Tormalina Rosa</a>
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <a href="#">Approfondimenti</a>
+        <div class="dropdown-content">
+            <a href="lavorazione.html">🔨 Lavorazione artigianale</a>
+            <a href="burattatura.html">⚙️ Burattatura</a>
+            <a href="pietre-preziose.html">💎 Pietre preziose e tagli</a>
+            <a href="sintetiche.html">🔬 Pietre sintetiche</a>
+        </div>
+    </div>
+    
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="photo.html">Photogallery</a>
+</nav>
+
+<div class="content">
+    <h1 class="geode title-light shadow-contrast">I Cristalli di</h1>
+    <h1 class="geode cursive title-light shadow-contrast">GiobaR</h1>
+    <div class="brand-small">✦ Galleria di luce e armonia ✦</div>
+    
+    <!-- Carosello a 3 immagini con effetto centrale più grande -->
+    <div class="carousel-container">
+        <button class="nav-btn nav-left" aria-label="Precedente">❮</button>
+        <div class="carousel-track" id="carouselTrack">
+            <!-- le immagini verranno generate dinamicamente con JS -->
+            <div class="loading-msg">Caricamento gallery in corso...</div>
+        </div>
+        <button class="nav-btn nav-right" aria-label="Successivo">❯</button>
+    </div>
+    
+    <div class="dots-container" id="dotsContainer"></div>
+    
+    <div class="autoplay-control">
+        <button class="autoplay-btn" id="autoplayBtn">⏸️ Pausa</button>
+    </div>
+    
+    <div class="center-text">
+        <div class="counter-info" id="counterInfo">Foto 1 / 20</div>
+    </div>
+    <div class="footer-note">
+        ✧ 20 gemme in esposizione ✧ | clicca sulle immagini o usa le frecce
+    </div>
+</div>
+
+<script>
+    (function() {
+        // CONFIGURAZIONE GALLERY
+        const TOTAL_IMAGES = 20;          // da P01.jpg a P20.jpg
+        const IMAGE_PATH = "images/gallery/";   // cartella dedicata
+        const BASE_NAME = "P";
+        const EXT = ".jpg";
+        
+        // Array dei nomi delle immagini (costruito dinamicamente)
+        let imageNames = [];
+        for (let i = 1; i <= TOTAL_IMAGES; i++) {
+            let numberStr = i < 10 ? "0" + i : "" + i;
+            imageNames.push(IMAGE_PATH + BASE_NAME + numberStr + EXT);
+        }
+        
+        // Indice centrale corrente (l'immagine visualizzata al centro)
+        let currentCenterIndex = 0;   // 0-based
+        
+        let autoPlayInterval = null;
+        let isAutoPlaying = true;
+        const AUTO_SPEED = 3500; // 3.5 secondi
+        
+        // Elementi DOM
+        const track = document.getElementById("carouselTrack");
+        const dotsContainer = document.getElementById("dotsContainer");
+        const prevBtn = document.querySelector(".nav-left");
+        const nextBtn = document.querySelector(".nav-right");
+        const autoplayBtn = document.getElementById("autoplayBtn");
+        const counterSpan = document.getElementById("counterInfo");
+        
+        // Funzione per ottenere i tre indici (sinistra, centro, destra) con wrap-around circolare
+        function getTripletIndices(centerIdx) {
+            let leftIdx = (centerIdx - 1 + TOTAL_IMAGES) % TOTAL_IMAGES;
+            let rightIdx = (centerIdx + 1) % TOTAL_IMAGES;
+            return { left: leftIdx, center: centerIdx, right: rightIdx };
+        }
+        
+        // Renderizza il carosello in base all'indice centrale
+        function renderCarousel() {
+            if (!track) return;
+            const { left, center, right } = getTripletIndices(currentCenterIndex);
+            
+            // Creiamo i tre elementi div con le rispettive classi
+            const leftDiv = document.createElement("div");
+            leftDiv.className = "carousel-card side";
+            const leftImg = document.createElement("img");
+            leftImg.src = imageNames[left];
+            leftImg.alt = `Gemma ${left+1}`;
+            leftImg.loading = "lazy";
+            // Gestione errore immagine (placeholder elegante)
+            leftImg.onerror = function() { this.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23ddd9ce'/%3E%3Ctext x='50' y='55' font-size='14' text-anchor='middle' fill='%23887766'%3E?%3C/text%3E%3C/svg%3E"; };
+            leftDiv.appendChild(leftImg);
+            
+            const centerDiv = document.createElement("div");
+            centerDiv.className = "carousel-card center";
+            const centerImg = document.createElement("img");
+            centerImg.src = imageNames[center];
+            centerImg.alt = `Gemma ${center+1}`;
+            centerImg.loading = "eager";
+            centerImg.onerror = function() { this.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23ddd9ce'/%3E%3Ctext x='50' y='55' font-size='14' text-anchor='middle' fill='%23887766'%3E?%3C/text%3E%3C/svg%3E"; };
+            centerDiv.appendChild(centerImg);
+            
+            const rightDiv = document.createElement("div");
+            rightDiv.className = "carousel-card side";
+            const rightImg = document.createElement("img");
+            rightImg.src = imageNames[right];
+            rightImg.alt = `Gemma ${right+1}`;
+            rightImg.loading = "lazy";
+            rightImg.onerror = function() { this.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23ddd9ce'/%3E%3Ctext x='50' y='55' font-size='14' text-anchor='middle' fill='%23887766'%3E?%3C/text%3E%3C/svg%3E"; };
+            rightDiv.appendChild(rightImg);
+            
+            // Svuoto il track e aggiungo i tre elementi nell'ordine corretto (left, center, right)
+            track.innerHTML = "";
+            track.appendChild(leftDiv);
+            track.appendChild(centerDiv);
+            track.appendChild(rightDiv);
+            
+            // Aggiorna contatore
+            if (counterSpan) {
+                counterSpan.innerText = `Foto ${center+1} / ${TOTAL_IMAGES}`;
+            }
+            
+            // Aggiorna i pallini
+            updateDots(center);
+            
+            // Evento clic sulle immagini: portare al centro l'immagine cliccata (laterale o centrale)
+            leftDiv.addEventListener("click", (e) => {
+                e.stopPropagation();
+                moveToIndex(left);
+                resetAutoPlayTimer();
+            });
+            
+            centerDiv.addEventListener("click", () => {
+                // se clicchi sull'immagine centrale non fai nulla se non eventuale ingrandimento, ma non lo richiesto.
+                // eventualmente lo lasciamo neutro, oppure può rimanere così (non serve spostamento)
+            });
+            
+            rightDiv.addEventListener("click", (e) => {
+                e.stopPropagation();
+                moveToIndex(right);
+                resetAutoPlayTimer();
+            });
+        }
+        
+        // Sposta il carosello per mostrare un nuovo indice centrale
+        function moveToIndex(newIndex) {
+            if (newIndex === currentCenterIndex) return;
+            currentCenterIndex = newIndex;
+            // normalizzazione circolare
+            currentCenterIndex = (currentCenterIndex + TOTAL_IMAGES) % TOTAL_IMAGES;
+            renderCarousel();
+        }
+        
+        // Scorri avanti (next)
+        function nextSlide() {
+            let nextIndex = (currentCenterIndex + 1) % TOTAL_IMAGES;
+            moveToIndex(nextIndex);
+        }
+        
+        // Scorri indietro (prev)
+        function prevSlide() {
+            let prevIndex = (currentCenterIndex - 1 + TOTAL_IMAGES) % TOTAL_IMAGES;
+            moveToIndex(prevIndex);
+        }
+        
+        // Aggiorna pallini di navigazione
+        function updateDots(activeIdx) {
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = "";
+            for (let i = 0; i < TOTAL_IMAGES; i++) {
+                const dot = document.createElement("div");
+                dot.classList.add("dot");
+                if (i === activeIdx) {
+                    dot.classList.add("active");
+                }
+                dot.addEventListener("click", (function(idx) {
+                    return function() {
+                        moveToIndex(idx);
+                        resetAutoPlayTimer();
+                    };
+                })(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+        
+        // Timer per autoplay
+        function startAutoPlay() {
+            if (autoPlayInterval) clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(() => {
+                if (isAutoPlaying) {
+                    nextSlide();
+                }
+            }, AUTO_SPEED);
+        }
+        
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+        }
+        
+        function resetAutoPlayTimer() {
+            if (isAutoPlaying) {
+                stopAutoPlay();
+                startAutoPlay();
+            }
+        }
+        
+        function toggleAutoPlay() {
+            isAutoPlaying = !isAutoPlaying;
+            if (isAutoPlaying) {
+                startAutoPlay();
+                autoplayBtn.innerHTML = "⏸️ Pausa";
+                autoplayBtn.style.background = "rgba(0,0,0,0.55)";
+            } else {
+                stopAutoPlay();
+                autoplayBtn.innerHTML = "▶️ Avvia";
+                autoplayBtn.style.background = "rgba(0,0,0,0.75)";
+            }
+        }
+        
+        // Eventi frecce / touch compatibilità base
+        function bindEvents() {
+            if (prevBtn) prevBtn.addEventListener("click", () => {
+                prevSlide();
+                resetAutoPlayTimer();
+            });
+            if (nextBtn) nextBtn.addEventListener("click", () => {
+                nextSlide();
+                resetAutoPlayTimer();
+            });
+            if (autoplayBtn) autoplayBtn.addEventListener("click", toggleAutoPlay);
+        }
+        
+        // Inizializzazione con verifica che le immagini siano disponibili (eventuali errori gestiti)
+        function init() {
+            bindEvents();
+            // partenza con immagine centrale = 0 (P01.jpg)
+            currentCenterIndex = 0;
+            renderCarousel();
+            // autoplay attivo
+            if (isAutoPlaying) {
+                startAutoPlay();
+            }
+        }
+        
+        // lancia tutto quando DOM è pronto
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", init);
+        } else {
+            init();
+        }
+        
+        // Opzionale: se si desidera supporto swipe touch (minimo)
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const container = document.querySelector(".carousel-container");
+        if (container) {
+            container.addEventListener("touchstart", (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            container.addEventListener("touchend", (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 40) {
+                    nextSlide();
+                    resetAutoPlayTimer();
+                } else if (touchEndX > touchStartX + 40) {
+                    prevSlide();
+                    resetAutoPlayTimer();
+                }
+            });
+        }
+        
+        // se la pagina viene resa invisibile, mettere pausa per risorse, ma non necessario; miglioria opzionale
+        window.addEventListener("beforeunload", () => {
+            if (autoPlayInterval) clearInterval(autoPlayInterval);
+        });
+        
+    })();
+</script>
+</body>
+</html>

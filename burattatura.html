@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Burattatura - I Cristalli di GiobaR</title>
+    
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===========================
+           BASE - sfondo animato
+        =========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(
+                120deg,
+                #c9a85f,
+                #d9a300,
+                #b7d4f0,
+                #c8b0e8,
+                #c9a85f
+            );
+            background-size: 500% 500%;
+            animation: mineralShift 22s ease-in-out infinite;
+        }
+        
+        @keyframes mineralShift {
+            0%   { background-position: 0% 50%; }
+            25%  { background-position: 50% 50%; }
+            50%  { background-position: 100% 50%; }
+            75%  { background-position: 50% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* ===========================
+           MENU (aggiornato con Approfondimenti)
+        =========================== */
+        nav { 
+            background: #2c3e2c; 
+            overflow: visible; 
+            position: relative; 
+            z-index: 10;
+        }
+        
+        nav > a, .dropdown > a { 
+            color: white; 
+            padding: 14px 20px; 
+            display: inline-block; 
+            text-decoration: none; 
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+        }
+        
+        nav > a:hover, .dropdown > a:hover {
+            background-color: #3e553e;
+        }
+        
+        .dropdown { 
+            display: inline-block; 
+            position: relative; 
+        }
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: #f9f9f9; 
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a { 
+            color: black; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+            text-align: left;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .dropdown-content a:hover { 
+            background-color: #ddd; 
+        }
+        
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+        
+        /* ===========================
+           CONTENITORE
+        =========================== */
+        .content {
+            padding: 30px 20px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* ===========================
+           TITOLI
+        =========================== */
+        .geode {
+            font-weight: bold;
+            color: #2E6DB4;
+            text-shadow:
+                0 0 6px rgba(255, 255, 255, 0.9),
+                0 0 12px rgba(255, 180, 255, 0.7),
+                0 0 18px rgba(150, 200, 255, 0.6),
+                0 0 25px rgba(255, 220, 150, 0.5),
+                0 0 35px rgba(200, 150, 255, 0.4),
+                2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.4rem;
+            letter-spacing: 1px;
+        }
+        
+        .title-light {
+            color: #2E6DB4;
+        }
+        
+        .shadow-contrast {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+            color: #2E6DB4;
+        }
+        
+        /* introduzione */
+        .intro-text {
+            background: rgba(255, 252, 245, 0.88);
+            backdrop-filter: blur(3px);
+            border-radius: 1.8rem;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0 2rem;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #2e3b2c;
+        }
+        
+        /* GALLERY A 3 COLONNE per le pietre */
+        .process-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem 0 2rem;
+        }
+        
+        .process-card {
+            background: rgba(255, 250, 240, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 1.8rem;
+            overflow: hidden;
+            flex: 1;
+            min-width: 240px;
+            max-width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 12px 22px -12px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,245,210,0.7);
+        }
+        
+        .process-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.3);
+        }
+        
+        .process-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            border-bottom: 3px solid #e7c184;
+        }
+        
+        .process-label {
+            padding: 1rem 0.8rem 0.5rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #7a531e;
+            background: #fffef7;
+            letter-spacing: 0.5px;
+        }
+        
+        .process-desc {
+            padding: 0 0.8rem 1.2rem 0.8rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6b5a42;
+            line-height: 1.4;
+        }
+        
+        /* spiegazione della burattatura */
+        .explanation-box {
+            background: rgba(44, 62, 44, 0.8);
+            backdrop-filter: blur(6px);
+            border-radius: 1.8rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: #fff5e0;
+        }
+        
+        .explanation-box h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 1.2rem;
+            color: #ffdfaa;
+        }
+        
+        .explanation-box p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .explanation-box .highlight {
+            color: #ffd58c;
+            font-weight: 700;
+            background: none;
+        }
+        
+        .compare-note {
+            background: rgba(0,0,0,0.35);
+            border-radius: 1.2rem;
+            padding: 1rem;
+            margin-top: 1.2rem;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #2d4a2d;
+            background: rgba(255,255,245,0.6);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 6px 18px;
+            border-radius: 50px;
+            backdrop-filter: blur(2px);
+        }
+        
+        @media (max-width: 860px) {
+            .process-card {
+                min-width: 220px;
+            }
+            .cursive {
+                font-size: 2.5rem;
+            }
+            .explanation-box h3 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 680px) {
+            .process-card {
+                min-width: 180px;
+            }
+            .process-label {
+                font-size: 0.9rem;
+            }
+            .process-desc {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    
+    <div class="dropdown">
+        <a href="#">Minerali</a>
+        <div class="dropdown-content">
+            <a href="QA.html">Ametista</a>
+            <a href="CL.html">Celestite</a>
+            <a href="LP.html">Lapislazzuli</a>
+            <a href="OT.html">Occhio di Tigre</a>
+            <a href="QC.html">Quarzo Citrino</a>
+            <a href="QI.html">Quarzo Ialino</a>
+            <a href="QR.html">Quarzo Rosa</a>
+            <a href="TR.html">Tormalina Rosa</a>
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <a href="#">Approfondimenti</a>
+        <div class="dropdown-content">
+            <a href="lavorazione.html">🔨 Lavorazione artigianale</a>
+            <a href="burattatura.html">⚙️ Burattatura</a>
+            <a href="pietre-preziose.html">💎 Pietre preziose e tagli</a>
+            <a href="sintetiche.html">🔬 Pietre sintetiche</a>
+        </div>
+    </div>
+    
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="photo.html">Photogallery</a>
+</nav>
+
+<div class="content">
+    <h1 class="geode title-light shadow-contrast">I Cristalli di</h1>
+    <h1 class="geode cursive title-light shadow-contrast">GiobaR</h1>
+    
+    <div class="intro-text">
+        <p>⚙️ <strong>Cos'è la burattatura?</strong> ⚙️<br>
+        La burattatura (o <em>tumbling</em>) è un processo industriale che permette di levigare e lucidare grandi quantità di pietre in tempi relativamente brevi.<br>
+        Le pietre vengono inserite in un tamburo rotante insieme ad abrasivi e acqua, e attraverso il movimento e l'attrito reciproco assumono forme arrotondate e superfici lisce e brillanti.<br>
+        In questo modo si può estrarre dalla pietra una bellezza spesso <strong>10 volte maggiore</strong> rispetto al grezzo originale.</p>
+    </div>
+    
+    <!-- GALLERIA CONFRONTO: grezzo / lucidato a mano / burattato -->
+    <div class="process-grid">
+        <!-- FOTO 1: pietra grezza (OT01.jpg) -->
+        <div class="process-card">
+            <img class="process-img" src="images/OT01.jpg" alt="Occhio di Tigre - pietra grezza" onerror="this.style.opacity='0.5'; this.alt='[Immagine OT01 non trovata]'">
+            <div class="process-label">⛰️ 1. Pietra grezza</div>
+            <div class="process-desc">L'Occhio di Tigre così come viene estratto: grezzo, opaco, dalla forma irregolare. Il celebre effetto chatoyant è ancora nascosto.</div>
+        </div>
+        
+        <!-- FOTO 2: lucidata a mano (OT02.jpg) -->
+        <div class="process-card">
+            <img class="process-img" src="images/OT02.jpg" alt="Occhio di Tigre - lucidato a mano" onerror="this.style.opacity='0.5'; this.alt='[Immagine OT02 non trovata]'">
+            <div class="process-label">🖐️ 2. Lucidata a mano</div>
+            <div class="process-desc">Dopo ore di paziente lavoro manuale con carta abrasiva a grana via via più fine. La superficie è liscia ma conserva ancora irregolarità naturali.</div>
+        </div>
+        
+        <!-- FOTO 3: pietra burattata (OT03.jpg) -->
+        <div class="process-card">
+            <img class="process-img" src="images/OT03.jpg" alt="Occhio di Tigre - burattato" onerror="this.style.opacity='0.5'; this.alt='[Immagine OT03 non trovata]'">
+            <div class="process-label">🌀 3. Pietra burattata</div>
+            <div class="process-desc">Il risultato del processo industriale: forme arrotondate, superficie lucida e l'effetto occhio di tigre che si accende alla luce.</div>
+        </div>
+    </div>
+    
+    <!-- spiegazione dettagliata del processo -->
+    <div class="explanation-box">
+        <h3>🔄 Come funziona la burattatura?</h3>
+        <p>Il processo si svolge in più fasi, all'interno di un <strong class="highlight">tamburo rotante</strong> (buratto). Le pietre vengono fatte ruotare insieme a:</p>
+        <ul style="margin: 0.5rem 0 0.5rem 2rem; line-height: 1.6;">
+            <li><strong>Graniglie abrasive</strong> (carburo di silicio) – per la sgrossatura iniziale</li>
+            <li><strong>Acqua</strong> – per lubrificare e trasportare i detriti</li>
+            <li><strong>Graniglie sempre più fini</strong> – per le fasi intermedie</li>
+            <li><strong>Pastiglie lucidanti</strong> (es. ossido di cerio o alluminio) – per la lucidatura finale</li>
+        </ul>
+        <p>Ogni fase può durare da alcuni giorni a una settimana. Alla fine, le pietre emergono con angoli smussati, superfici lisce e una <strong class="highlight">lucentezza che esalta il colore e le inclusioni</strong>. L'Occhio di Tigre, in particolare, rivela tutto il suo fascino con le bande dorate e brunastre che sembrano muoversi.</p>
+        
+        <div class="compare-note">
+            💡 <strong>Lavorazione a mano vs burattatura</strong><br>
+            La lucidatura manuale richiede ore per ogni singola pietra, ma permette di preservare forme più irregolari e naturali.<br>
+            La burattatura è più veloce ed economica, ideale per grandi quantità, ma rende le pietre tutte simili tra loro (forma arrotondata).<br>
+            Entrambi i metodi hanno il loro fascino e le loro applicazioni.
+        </div>
+    </div>
+    
+    <div class="footer-note">
+        🜁 La burattatura trasforma la pietra in un piccolo gioiello levigato dal tempo e dalla tecnologia 🜁
+    </div>
+</div>
+
+</body>
+</html>

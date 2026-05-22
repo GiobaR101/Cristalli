@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pietre Preziose - I Cristalli di GiobaR</title>
+    
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===========================
+           BASE - sfondo animato
+        =========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(
+                120deg,
+                #c9a85f,
+                #d9a300,
+                #b7d4f0,
+                #c8b0e8,
+                #c9a85f
+            );
+            background-size: 500% 500%;
+            animation: mineralShift 22s ease-in-out infinite;
+        }
+        
+        @keyframes mineralShift {
+            0%   { background-position: 0% 50%; }
+            25%  { background-position: 50% 50%; }
+            50%  { background-position: 100% 50%; }
+            75%  { background-position: 50% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* ===========================
+           MENU (aggiornato con Approfondimenti)
+        =========================== */
+        nav { 
+            background: #2c3e2c; 
+            overflow: visible; 
+            position: relative; 
+            z-index: 10;
+        }
+        
+        nav > a, .dropdown > a { 
+            color: white; 
+            padding: 14px 20px; 
+            display: inline-block; 
+            text-decoration: none; 
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+        }
+        
+        nav > a:hover, .dropdown > a:hover {
+            background-color: #3e553e;
+        }
+        
+        .dropdown { 
+            display: inline-block; 
+            position: relative; 
+        }
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: #f9f9f9; 
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a { 
+            color: black; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+            text-align: left;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .dropdown-content a:hover { 
+            background-color: #ddd; 
+        }
+        
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+        
+        /* ===========================
+           CONTENITORE
+        =========================== */
+        .content {
+            padding: 30px 20px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* ===========================
+           TITOLI
+        =========================== */
+        .geode {
+            font-weight: bold;
+            color: #2E6DB4;
+            text-shadow:
+                0 0 6px rgba(255, 255, 255, 0.9),
+                0 0 12px rgba(255, 180, 255, 0.7),
+                0 0 18px rgba(150, 200, 255, 0.6),
+                0 0 25px rgba(255, 220, 150, 0.5),
+                0 0 35px rgba(200, 150, 255, 0.4),
+                2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.4rem;
+            letter-spacing: 1px;
+        }
+        
+        .title-light {
+            color: #2E6DB4;
+        }
+        
+        .shadow-contrast {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+            color: #2E6DB4;
+        }
+        
+        /* sezioni testuali */
+        .section-card {
+            background: rgba(255, 252, 245, 0.88);
+            backdrop-filter: blur(3px);
+            border-radius: 1.8rem;
+            padding: 1.8rem 2rem;
+            margin: 1.8rem 0;
+            color: #2e3b2c;
+            line-height: 1.6;
+        }
+        
+        .section-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: #9b5f26;
+            margin-bottom: 1rem;
+            border-left: 5px solid #e7a845;
+            padding-left: 1rem;
+        }
+        
+        .section-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: #b5722a;
+            margin: 1.2rem 0 0.6rem 0;
+        }
+        
+        .section-card p {
+            margin-bottom: 0.8rem;
+            text-align: justify;
+        }
+        
+        .section-card ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-card li {
+            margin-bottom: 0.3rem;
+        }
+        
+        .highlight {
+            background: rgba(231, 168, 69, 0.2);
+            padding: 0.1rem 0.3rem;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #9b5f26;
+        }
+        
+        .quote {
+            font-style: italic;
+            background: rgba(100, 80, 50, 0.15);
+            padding: 0.8rem 1.2rem;
+            border-radius: 1.2rem;
+            margin: 1rem 0;
+            border-left: 4px solid #e7a845;
+        }
+        
+        /* GALLERIA TAGLI / IMMAGINI */
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        
+        .cut-card {
+            background: rgba(255, 250, 240, 0.92);
+            border-radius: 1.2rem;
+            overflow: hidden;
+            width: 140px;
+            text-align: center;
+            transition: transform 0.2s;
+            box-shadow: 0 8px 16px -8px rgba(0,0,0,0.15);
+        }
+        
+        .cut-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .cut-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            border-bottom: 2px solid #e7c184;
+        }
+        
+        .cut-name {
+            padding: 0.5rem;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #7a531e;
+            background: #fffef7;
+        }
+        
+        .comparison-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-item {
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+            background: rgba(255,255,245,0.7);
+            border-radius: 1.2rem;
+            padding: 1rem;
+        }
+        
+        .comparison-img {
+            width: 100%;
+            max-width: 180px;
+            border-radius: 1rem;
+            margin-bottom: 0.5rem;
+            border: 2px solid #e7c184;
+        }
+        
+        /* link a sintetiche */
+        .synthetic-link {
+            background: rgba(44, 62, 44, 0.85);
+            backdrop-filter: blur(6px);
+            border-radius: 1.8rem;
+            padding: 1.5rem;
+            margin: 2rem 0 1rem;
+            text-align: center;
+            color: #ffefcf;
+        }
+        
+        .synthetic-link a {
+            color: #ffdfaa;
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: 2px solid #ffdfaa;
+            transition: 0.2s;
+        }
+        
+        .synthetic-link a:hover {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #2d4a2d;
+            background: rgba(255,255,245,0.6);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 6px 18px;
+            border-radius: 50px;
+            backdrop-filter: blur(2px);
+        }
+        
+        @media (max-width: 680px) {
+            .cursive {
+                font-size: 2.4rem;
+            }
+            .section-card h2 {
+                font-size: 1.4rem;
+            }
+            .cut-card {
+                width: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    
+    <div class="dropdown">
+        <a href="#">Minerali</a>
+        <div class="dropdown-content">
+            <a href="QA.html">Ametista</a>
+            <a href="CL.html">Celestite</a>
+            <a href="LP.html">Lapislazzuli</a>
+            <a href="OT.html">Occhio di Tigre</a>
+            <a href="QC.html">Quarzo Citrino</a>
+            <a href="QI.html">Quarzo Ialino</a>
+            <a href="QR.html">Quarzo Rosa</a>
+            <a href="TR.html">Tormalina Rosa</a>
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <a href="#">Approfondimenti</a>
+        <div class="dropdown-content">
+            <a href="lavorazione.html">🔨 Lavorazione artigianale</a>
+            <a href="burattatura.html">⚙️ Burattatura</a>
+            <a href="pietre-preziose.html">💎 Pietre preziose e tagli</a>
+            <a href="sintetiche.html">🔬 Pietre sintetiche</a>
+        </div>
+    </div>
+    
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="photo.html">Photogallery</a>
+</nav>
+
+<div class="content">
+    <h1 class="geode title-light shadow-contrast">I Cristalli di</h1>
+    <h1 class="geode cursive title-light shadow-contrast">GiobaR</h1>
+    
+    <!-- SEZIONE 1: PREZIOSE vs SEMIPREZIOSE -->
+    <div class="section-card">
+        <h2>💎 Preziose e semipreziose: una distinzione di comodo</h2>
+        <p>La celebre divisione tra <span class="highlight">pietre preziose</span> (diamante, rubino, zaffiro, smeraldo) e <span class="highlight">semipreziose</span> (tutte le altre) non ha fondamento geologico, ma nasce da un uso <strong>commerciale e storico</strong>. In origine, il criterio si basava sulla <strong>rarità</strong> e sulla <strong>durezza</strong> (secondo la scala di Mohs, le preziose hanno durezza ≥ 7).</p>
+        <p>Oggi, molte cosiddette “semipreziose” come <strong>tormaline, acquamarine, opali e spinelli</strong> di qualità eccezionale raggiungono quotazioni da capogiro, talvolta superiori a quelle delle preziose di bassa qualità. La distinzione è ormai più un retaggio culturale che una reale scala di valore.</p>
+        <div class="quote">
+            📜 <strong>Un aneddoto antico:</strong> Già nel Neolitico (8.000-4.000 anni fa), nel Vicino Oriente, venivano deposte nelle sepolture perle intagliate in pietre semipreziose come l'agata e la corniola, a dimostrazione del loro valore simbolico e sociale, ben prima che qualcuno inventasse la parola “prezioso”.
+        </div>
+    </div>
+    
+    <!-- SEZIONE 2: DAL GIOIELLO LISCIO AL GIOIELLO SFACCETTATO -->
+    <div class="section-card">
+        <h2>📿 Dal cabochon alla sfaccettatura: l'evoluzione del taglio</h2>
+        
+        <h3>🔹 L'Età del Cabochon (il gioiello liscio)</h3>
+        <p>Per millenni, le gemme vennero lavorate esclusivamente a <span class="highlight">cabochon</span>: una calotta liscia, senza spigoli. Questa tecnica antichissima era perfetta per valorizzare gli <strong>effetti ottici naturali</strong> come l'<strong>asterismo</strong> (la stella dei rubini e degli zaffiri) o l'<strong>opalescenza</strong> degli opali, e per nascondere le inclusioni.</p>
+        <p><strong>I Romani</strong> erano maestri nell'arte del cabochon e del cammeo. Utilizzavano spesso il <em>vetro pasta</em> (una tecnica che imitava le pietre dure) per creare gioielli raffinati, e intagliavano cammei in pietre dure come il <strong>sardonice</strong>. Un esempio iconico è la <strong>Coppa di Tolomeo</strong> (in onice), conservata a Parigi.</p>
+        <p>Oggi il cabochon non è affatto scomparso. Marchi come <strong>Bulgari</strong> ne hanno fatto un tratto distintivo, specialmente per i loro zaffiri cabochon, simbolo di eleganza senza tempo.</p>
+        
+        <h3>🔸 La Rivoluzione della Sfaccettatura</h3>
+        <p>A partire dal Rinascimento (e poi in modo sistematico dal XVIII secolo), si diffuse il taglio <span class="highlight">a faccette</span>. La superficie della gemma viene incisa in tanti piccoli specchi geometrici che interagiscono con la luce. Il risultato è il <strong>miracolo della brillantezza</strong>: la luce bianca riflessa (brillantezza) e la dispersione nei colori dell'arcobaleno (fuoco).</p>
+        <p>La tecnologia giocò un ruolo fondamentale: l'introduzione di <strong>mole e dischi diamantati</strong> permise di tagliare pietre sempre più dure con precisione millimetrica. Da allora, il taglio è diventato uno dei quattro criteri (le 4C) per valutare una gemma.</p>
+    </div>
+    
+    <!-- SEZIONE 3: I TAGLI PIÙ FAMOSI (galleria) -->
+    <div class="section-card">
+        <h2>✂️ I tagli più comuni per le pietre sfaccettate</h2>
+        <p>Ogni taglio esalta caratteristiche diverse: brillantezza, colore, purezza o eleganza della forma. Ecco alcuni dei più celebri:</p>
+        <div class="gallery-grid">
+            <div class="cut-card"><img class="cut-img" src="images/cut-brillante.jpg" alt="Taglio brillante" onerror="this.style.opacity='0.5'"><div class="cut-name">💎 Brillante (Round)</div></div>
+            <div class="cut-card"><img class="cut-img" src="images/cut-smeraldo.jpg" alt="Taglio smeraldo" onerror="this.style.opacity='0.5'"><div class="cut-name">📐 Smeraldo (Emerald)</div></div>
+            <div class="cut-card"><img class="cut-img" src="images/cut-principessa.jpg" alt="Taglio principessa" onerror="this.style.opacity='0.5'"><div class="cut-name">👑 Principessa</div></div>
+            <div class="cut-card"><img class="cut-img" src="images/cut-pera.jpg" alt="Taglio a pera" onerror="this.style.opacity='0.5'"><div class="cut-name">🍐 Pera / Goccia</div></div>
+            <div class="cut-card"><img class="cut-img" src="images/cut-cuore.jpg" alt="Taglio cuore" onerror="this.style.opacity='0.5'"><div class="cut-name">❤️ Cuore</div></div>
+            <div class="cut-card"><img class="cut-img" src="images/cut-ovale.jpg" alt="Taglio ovale" onerror="this.style.opacity='0.5'"><div class="cut-name">⚪ Ovale</div></div>
+        </div>
+        <p style="font-size:0.85rem; text-align:center; margin-top:5px;">(Le immagini dei tagli sono esemplificative. In una prossima versione potremo aggiungere foto reali delle pietre tagliate.)</p>
+    </div>
+    
+    <!-- SEZIONE 4: PUREZZA E VALORE (4C e giardino) -->
+    <div class="section-card">
+        <h2>🧼 Il valore di una gemma: purezza e “4C”</h2>
+        <p>Il valore di una pietra preziosa non dipende solo dal peso (carati). I criteri universali sono noti come le <span class="highlight">4C</span>:</p>
+        <ul>
+            <li><strong>Colore (Color)</strong> – intensità e purezza della tinta.</li>
+            <li><strong>Purezza (Clarity)</strong> – assenza di inclusioni interne.</li>
+            <li><strong>Taglio (Cut)</strong> – qualità delle proporzioni e delle faccette.</li>
+            <li><strong>Peso in carati (Carat)</strong> – massa della gemma.</li>
+        </ul>
+        <p>Le <strong>inclusioni</strong> (piccoli difetti interni come cristalli secondari, bolle o fratture) sono in genere viste come imperfezioni che riducono il valore. Tuttavia, esiste un'eccezione celebre: lo <strong>Smeraldo</strong>. Le sue inclusioni, chiamate <span class="highlight">“jardin”</span> (giardino in francese), sono così caratteristiche da essere considerate un <strong>certificato di autenticità naturale</strong>, non un difetto. Un giardino fitto ma armonioso può persino aumentare il fascino e il valore.</p>
+        <div class="comparison-row">
+            <div class="comparison-item">
+                <img class="comparison-img" src="images/purezza-alta.jpg" alt="Purezza alta" onerror="this.style.opacity='0.5'">
+                <p><strong>✨ Alissima purezza</strong><br>Poche inclusioni – valore massimo</p>
+            </div>
+            <div class="comparison-item">
+                <img class="comparison-img" src="images/jardin-smeraldo.jpg" alt="Giardino smeraldo" onerror="this.style.opacity='0.5'">
+                <p><strong>🌿 Jardin dello smeraldo</strong><br>Inclusioni pregiate – autenticità</p>
+            </div>
+            <div class="comparison-item">
+                <img class="comparison-img" src="images/4c-icon.jpg" alt="4C" onerror="this.style.opacity='0.5'">
+                <p><strong>📏 Le 4C</strong><br>Valutazione professionale</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SEZIONE 5: LINK ALLA PAGINA SINTETICHE -->
+    <div class="synthetic-link">
+        <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">💎 <strong>La tecnologia attuale è in grado di replicare la natura in maniera sbalorditiva e, talvolta, preoccupante.</strong></p>
+        <p>Esiste un universo affascinante di pietre create in laboratorio, dalle più comuni (come il vetro) a quelle quasi perfette (CZ, corindone sintetico, spinello, quarzi idrotermali).</p>
+        <p style="margin-top: 0.8rem;">👉 Vuoi scoprire come distinguerle e cosa sono le <strong>pietre sintetiche</strong>?<br>
+        <a href="sintetiche.html">✨ Clicca qui per leggere "Sintetiche.html" ✨</a> (pagina in arrivo)</p>
+        <p style="font-size:0.8rem; margin-top:0.8rem;">⏳ Presto online – torneremo con un approfondimento completo.</p>
+    </div>
+    
+    <div class="footer-note">
+        🜁 Tra natura e arte: il lungo cammino delle gemme, dai cabochon romani alle sfaccettature moderne 🜁
+    </div>
+</div>
+
+</body>
+</html>

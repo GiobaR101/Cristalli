@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Chi siamo - I Cristalli di GiobaR</title>
+    
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===========================
+           BASE - stesso sfondo animato
+        =========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(
+                120deg,
+                #c9a85f,
+                #d9a300,
+                #b7d4f0,
+                #c8b0e8,
+                #c9a85f
+            );
+            background-size: 500% 500%;
+            animation: mineralShift 22s ease-in-out infinite;
+        }
+        
+        @keyframes mineralShift {
+            0%   { background-position: 0% 50%; }
+            25%  { background-position: 50% 50%; }
+            50%  { background-position: 100% 50%; }
+            75%  { background-position: 50% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* ===========================
+           MENU (aggiornato con Approfondimenti)
+        =========================== */
+        nav { 
+            background: #2c3e2c; 
+            overflow: visible; 
+            position: relative; 
+            z-index: 10;
+        }
+        
+        nav > a, .dropdown > a { 
+            color: white; 
+            padding: 14px 20px; 
+            display: inline-block; 
+            text-decoration: none; 
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+        }
+        
+        nav > a:hover, .dropdown > a:hover {
+            background-color: #3e553e;
+        }
+        
+        .dropdown { 
+            display: inline-block; 
+            position: relative; 
+        }
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: #f9f9f9; 
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a { 
+            color: black; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+            text-align: left;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .dropdown-content a:hover { 
+            background-color: #ddd; 
+        }
+        
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+        
+        /* ===========================
+           CONTENITORE PRINCIPALE
+        =========================== */
+        .content {
+            padding: 30px 20px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        /* ===========================
+           TITOLI
+        =========================== */
+        .geode {
+            font-weight: bold;
+            color: #2E6DB4;
+            text-shadow:
+                0 0 6px rgba(255, 255, 255, 0.9),
+                0 0 12px rgba(255, 180, 255, 0.7),
+                0 0 18px rgba(150, 200, 255, 0.6),
+                0 0 25px rgba(255, 220, 150, 0.5),
+                0 0 35px rgba(200, 150, 255, 0.4),
+                2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.4rem;
+            letter-spacing: 1px;
+        }
+        
+        .title-light {
+            color: #2E6DB4;
+        }
+        
+        .shadow-contrast {
+            text-shadow:
+                2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+            color: #2E6DB4;
+        }
+        
+        /* sezione chi siamo */
+        .about-section {
+            background: rgba(255, 252, 245, 0.88);
+            backdrop-filter: blur(3px);
+            border-radius: 2rem;
+            padding: 2rem 2rem 1.8rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,245,220,0.7);
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #2e3b2c;
+            text-align: justify;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.3rem;
+        }
+        
+        .poetic-quote {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.9rem;
+            text-align: center;
+            color: #b5722a;
+            margin: 1.5rem 0;
+            font-weight: 400;
+            text-shadow: 1px 1px 2px rgba(255,250,210,0.8);
+        }
+        
+        .img-chi {
+            text-align: center;
+            margin: 25px 0 20px;
+        }
+        
+        .img-chi img {
+            max-width: 90%;
+            width: 500px;
+            border-radius: 28px;
+            box-shadow: 0 18px 32px -10px rgba(0,0,0,0.4);
+            border: 3px solid rgba(255,245,200,0.8);
+            transition: transform 0.3s;
+        }
+        
+        .img-chi img:hover {
+            transform: scale(1.01);
+        }
+        
+        /* sezione link unico agli approfondimenti */
+        .deep-link {
+            background: rgba(44, 62, 44, 0.8);
+            backdrop-filter: blur(6px);
+            border-radius: 1.8rem;
+            padding: 1.8rem;
+            margin: 2rem 0 1rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .deep-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        .deep-link a {
+            display: inline-block;
+            background: #ffdfaa;
+            color: #2c3e2c;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .deep-link a:hover {
+            background: #ffefcf;
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .deep-link p {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #ffefcf;
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #2d4a2d;
+            background: rgba(255,255,245,0.6);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 6px 18px;
+            border-radius: 50px;
+            backdrop-filter: blur(2px);
+        }
+        
+        @media (max-width: 680px) {
+            .cursive {
+                font-size: 2.4rem;
+            }
+            .about-text {
+                font-size: 1rem;
+            }
+            .poetic-quote {
+                font-size: 1.5rem;
+            }
+            .deep-link a {
+                font-size: 1.1rem;
+                padding: 0.6rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    
+    <div class="dropdown">
+        <a href="#">Minerali</a>
+        <div class="dropdown-content">
+            <a href="QA.html">Ametista</a>
+            <a href="CL.html">Celestite</a>
+            <a href="LP.html">Lapislazzuli</a>
+            <a href="OT.html">Occhio di Tigre</a>
+            <a href="QC.html">Quarzo Citrino</a>
+            <a href="QI.html">Quarzo Ialino</a>
+            <a href="QR.html">Quarzo Rosa</a>
+            <a href="TR.html">Tormalina Rosa</a>
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <a href="#">Approfondimenti</a>
+        <div class="dropdown-content">
+            <a href="lavorazione.html">🔨 Lavorazione artigianale</a>
+            <a href="burattatura.html">⚙️ Burattatura</a>
+            <a href="pietre-preziose.html">💎 Pietre preziose e tagli</a>
+            <a href="sintetiche.html">🔬 Pietre sintetiche</a>
+        </div>
+    </div>
+    
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="photo.html">Photogallery</a>
+</nav>
+
+<div class="content">
+    <h1 class="geode title-light shadow-contrast">I Cristalli di</h1>
+    <h1 class="geode cursive title-light shadow-contrast">GiobaR</h1>
+    
+    <!-- immagine chi.jpg -->
+    <div class="img-chi">
+        <img src="images/chi.jpg" alt="Gruppo di amici minerali e cristalli" onerror="this.style.opacity='0.5'; this.alt='[Immagine chi.jpg non trovata]'">
+    </div>
+    
+    <div class="about-section">
+        <div class="about-text">
+            <p>Siamo un gruppo di amici uniti da una passione profonda e antica quanto la Terra stessa: l'amore per i <strong>minerali, i cristalli, le gemme preziose e semipreziose</strong>. Non ci attrae solo la loro bellezza esteriore, ma soprattutto la <strong>potenza silenziosa della natura</strong> che li ha plasmati nel corso di ere geologiche, racchiudendo in ogni sfaccettatura un frammento di energia primordiale.</p>
+            
+            <p>Ogni cristallo è un piccolo universo: la perfezione ipnotica dei suoi reticoli cristallini ci parla di ordine cosmico, mentre le imperfezioni – le inclusioni, le venature, le impurità che regalano colori unici e irripetibili – raccontano storie di caos, fuoco, pressione e trasformazione. È proprio in quell'equilibrio tra geometria divina e accidente terreno che si cela la vera magia.</p>
+            
+            <div class="poetic-quote">
+                «Nella purezza del cristallo vive l'ordine, nelle sue crepe abita l'anima»
+            </div>
+            
+            <p>Noi non siamo né scienziati né artisti, ma <strong>umili "crafter"</strong>. Ci limitiamo a <strong>scoprire</strong> questi tesori nascosti, a <strong>pulirli</strong> con pazienza e a <strong>lucidarli a mano</strong>, granello dopo granello, per portare a galla la loro bellezza intrinseca. Ogni pietra che tocca le nostre mani viene rispettata come un dono della Terra: non la forziamo mai a essere ciò che non è, ma la accompagniamo a rivelare la luce che già possiede.</p>
+            
+            <p>Questa gallery e le schede che trovate nel sito sono il frutto del nostro lavoro artigianale e della nostra continua meraviglia. Benvenuti nel nostro mondo fatto di scintille, polvere di roccia e silenzio concentrato.</p>
+        </div>
+    </div>
+    
+    <!-- Link unico alla pagina approfondimenti.html (che creeremo) -->
+    <div class="deep-link">
+        <a href="approfondimenti.html">📚 Scopri tutti i nostri approfondimenti</a>
+        <p>Lavorazione artigianale · Burattatura · Pietre preziose e tagli · Pietre sintetiche</p>
+    </div>
+    
+    <div class="footer-note">
+        🜁 "Crafter" per passione – custodiamo l'energia della Terra, una gemma alla volta 🜁
+    </div>
+</div>
+
+</body>
+</html>

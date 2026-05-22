@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Lavorazione artigianale - I Cristalli di GiobaR</title>
+    
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===========================
+           BASE - sfondo animato
+        =========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(
+                120deg,
+                #c9a85f,
+                #d9a300,
+                #b7d4f0,
+                #c8b0e8,
+                #c9a85f
+            );
+            background-size: 500% 500%;
+            animation: mineralShift 22s ease-in-out infinite;
+        }
+        
+        @keyframes mineralShift {
+            0%   { background-position: 0% 50%; }
+            25%  { background-position: 50% 50%; }
+            50%  { background-position: 100% 50%; }
+            75%  { background-position: 50% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* ===========================
+           MENU (aggiornato con Approfondimenti)
+        =========================== */
+        nav { 
+            background: #2c3e2c; 
+            overflow: visible; 
+            position: relative; 
+            z-index: 10;
+        }
+        
+        nav > a, .dropdown > a { 
+            color: white; 
+            padding: 14px 20px; 
+            display: inline-block; 
+            text-decoration: none; 
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+        }
+        
+        nav > a:hover, .dropdown > a:hover {
+            background-color: #3e553e;
+        }
+        
+        .dropdown { 
+            display: inline-block; 
+            position: relative; 
+        }
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: #f9f9f9; 
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a { 
+            color: black; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+            text-align: left;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .dropdown-content a:hover { 
+            background-color: #ddd; 
+        }
+        
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+        
+        /* ===========================
+           CONTENITORE
+        =========================== */
+        .content {
+            padding: 30px 20px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* ===========================
+           TITOLI
+        =========================== */
+        .geode {
+            font-weight: bold;
+            color: #2E6DB4;
+            text-shadow:
+                0 0 6px rgba(255, 255, 255, 0.9),
+                0 0 12px rgba(255, 180, 255, 0.7),
+                0 0 18px rgba(150, 200, 255, 0.6),
+                0 0 25px rgba(255, 220, 150, 0.5),
+                0 0 35px rgba(200, 150, 255, 0.4),
+                2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.4rem;
+            letter-spacing: 1px;
+        }
+        
+        .title-light {
+            color: #2E6DB4;
+        }
+        
+        .shadow-contrast {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+            color: #2E6DB4;
+        }
+        
+        /* sezione descrittiva */
+        .intro-text {
+            background: rgba(255, 252, 245, 0.88);
+            backdrop-filter: blur(3px);
+            border-radius: 1.8rem;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0 2rem;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #2e3b2c;
+        }
+        
+        /* GALLERY A 4 COLONNE / GRIGLIA FLESSIBILE */
+        .process-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem 0 2rem;
+        }
+        
+        .process-card {
+            background: rgba(255, 250, 240, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 1.8rem;
+            overflow: hidden;
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 12px 22px -12px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,245,210,0.7);
+        }
+        
+        .process-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.3);
+        }
+        
+        .process-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            border-bottom: 3px solid #e7c184;
+        }
+        
+        .process-label {
+            padding: 1rem 0.8rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #7a531e;
+            background: #fffef7;
+            letter-spacing: 0.5px;
+        }
+        
+        .process-desc {
+            padding: 0 0.8rem 1rem 0.8rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6b5a42;
+            line-height: 1.4;
+        }
+        
+        /* sezione riflessione artigianale */
+        .craft-philosophy {
+            background: rgba(44, 62, 44, 0.75);
+            backdrop-filter: blur(6px);
+            border-radius: 1.8rem;
+            padding: 1.8rem;
+            margin: 2rem 0 1.5rem;
+            color: #fff5e0;
+            text-align: center;
+        }
+        
+        .craft-philosophy p {
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.7rem;
+            margin-top: 1rem;
+            color: #ffdfaa;
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #2d4a2d;
+            background: rgba(255,255,245,0.6);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 6px 18px;
+            border-radius: 50px;
+            backdrop-filter: blur(2px);
+        }
+        
+        @media (max-width: 860px) {
+            .process-card {
+                min-width: 200px;
+            }
+            .cursive {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 680px) {
+            .process-card {
+                min-width: 160px;
+            }
+            .process-label {
+                font-size: 0.9rem;
+            }
+            .process-desc {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    
+    <div class="dropdown">
+        <a href="#">Minerali</a>
+        <div class="dropdown-content">
+            <a href="QA.html">Ametista</a>
+            <a href="CL.html">Celestite</a>
+            <a href="LP.html">Lapislazzuli</a>
+            <a href="OT.html">Occhio di Tigre</a>
+            <a href="QC.html">Quarzo Citrino</a>
+            <a href="QI.html">Quarzo Ialino</a>
+            <a href="QR.html">Quarzo Rosa</a>
+            <a href="TR.html">Tormalina Rosa</a>
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <a href="#">Approfondimenti</a>
+        <div class="dropdown-content">
+            <a href="lavorazione.html">🔨 Lavorazione artigianale</a>
+            <a href="burattatura.html">⚙️ Burattatura</a>
+            <a href="pietre-preziose.html">💎 Pietre preziose e tagli</a>
+            <a href="sintetiche.html">🔬 Pietre sintetiche</a>
+        </div>
+    </div>
+    
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="photo.html">Photogallery</a>
+</nav>
+
+<div class="content">
+    <h1 class="geode title-light shadow-contrast">I Cristalli di</h1>
+    <h1 class="geode cursive title-light shadow-contrast">GiobaR</h1>
+    
+    <div class="intro-text">
+        <p>✨ Ogni cristallo che arriva tra le nostre mani ha una storia scritta nella pietra.<br>
+        Dalla scoperta nel greto del fiume o nelle terre lontane, fino alla sua trasformazione in un gioiello o in un pezzo da collezione.<br>
+        <strong>Non usiamo macchinari industriali né processi aggressivi</strong>: la nostra è una <strong>lavorazione artigianale, paziente e rispettosa</strong>, che accompagna la gemma a rivelare la sua essenza più autentica.<br>
+        Qui vi mostriamo l’esempio della <strong>Celestite</strong> – pietra fragile e dal colore etereo – attraverso le fasi che abbiamo vissuto con lei.</p>
+    </div>
+    
+    <!-- GALLERIA DELLE 4 FASI -->
+    <div class="process-grid">
+        <!-- FOTO 1: pietra grezza -->
+        <div class="process-card">
+            <img class="process-img" src="images/L01.jpg" alt="Celestite grezza - cristallo grezzo" onerror="this.style.opacity='0.5'; this.alt='[Immagine L01 non trovata]'">
+            <div class="process-label">⛰️ 1. Pietra grezza</div>
+            <div class="process-desc">Come viene trovata: incrostata di terra, opaca, dal potenziale ancora nascosto. La celestite si presenta in geodi o frammenti azzurrini.</div>
+        </div>
+        
+        <!-- FOTO 2: pietra pulita e lucidata -->
+        <div class="process-card">
+            <img class="process-img" src="images/L02.jpg" alt="Celestite pulita e lucidata" onerror="this.style.opacity='0.5'; this.alt='[Immagine L02 non trovata]'">
+            <div class="process-label">💧 2. Pulita e lucidata a mano</div>
+            <div class="process-desc">Dopo un'attenta pulitura con spazzole morbide e acqua (pochissima, perché la celestite teme l'acqua!) e una lucidatura manuale, il colore azzurro cielo emerge in tutta la sua delicatezza.</div>
+        </div>
+        
+        <!-- FOTO 3: scatolina a 12 scomparti con pietre -->
+        <div class="process-card">
+            <img class="process-img" src="images/L03.jpg" alt="Scatola a scomparti con pietre di Celestite" onerror="this.style.opacity='0.5'; this.alt='[Immagine L03 non trovata]'">
+            <div class="process-label">📦 3. Archivio delle meraviglie</div>
+            <div class="process-desc">Ogni frammento viene catalogato in scatole divisorie: qui custodiamo le celestiti già pronte, in attesa di ispirazione per future creazioni o collezioni.</div>
+        </div>
+        
+        <!-- FOTO 4: ciondolo realizzato con pietra di celestite -->
+        <div class="process-card">
+            <img class="process-img" src="images/L04.jpg" alt="Ciondolo in argento con Celestite" onerror="this.style.opacity='0.5'; this.alt='[Immagine L04 non trovata]'">
+            <div class="process-label">✨ 4. Gioiello finito</div>
+            <div class="process-desc">Un ciondolo in argento incastonato a mano con una celestite lucidata. La pietra diventa un gioiello da indossare, portando con sé la serenità del cielo.</div>
+        </div>
+    </div>
+    
+    <!-- riflessione artigianale -->
+    <div class="craft-philosophy">
+        <p>🔨 <strong>Non cerchiamo la perfezione meccanica, ma l'anima della pietra.</strong> <br>
+        Ogni crepa, ogni venatura, ogni nuance di colore è unica. Ci vuole tempo, cura e tanta passione per trasformare un semplice frammento di roccia in un piccolo scrigno di luce.<br>
+        È così che un cristallo grezzo diventa un amuleto, un regalo della Terra che qualcuno porterà con sé.</p>
+        <div class="signature">— crafter per passione —</div>
+    </div>
+    
+    <div class="footer-note">
+        🜁 Lavorazione interamente manuale, senza processi industriali. Ogni celestite è trattata con la massima delicatezza 🜁
+    </div>
+</div>
+
+</body>
+</html>

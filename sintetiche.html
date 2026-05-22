@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pietre Sintetiche - I Cristalli di GiobaR</title>
+    
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===========================
+           BASE - sfondo animato
+        =========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(
+                120deg,
+                #c9a85f,
+                #d9a300,
+                #b7d4f0,
+                #c8b0e8,
+                #c9a85f
+            );
+            background-size: 500% 500%;
+            animation: mineralShift 22s ease-in-out infinite;
+        }
+        
+        @keyframes mineralShift {
+            0%   { background-position: 0% 50%; }
+            25%  { background-position: 50% 50%; }
+            50%  { background-position: 100% 50%; }
+            75%  { background-position: 50% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* ===========================
+           MENU
+        =========================== */
+        nav { 
+            background: #2c3e2c; 
+            overflow: visible; 
+            position: relative; 
+            z-index: 10;
+        }
+        
+        nav > a, .dropdown > a { 
+            color: white; 
+            padding: 14px 20px; 
+            display: inline-block; 
+            text-decoration: none; 
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+        }
+        
+        nav > a:hover, .dropdown > a:hover {
+            background-color: #3e553e;
+        }
+        
+        .dropdown { 
+            display: inline-block; 
+            position: relative; 
+        }
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: #f9f9f9; 
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a { 
+            color: black; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+            text-align: left;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .dropdown-content a:hover { 
+            background-color: #ddd; 
+        }
+        
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+        
+        /* ===========================
+           CONTENITORE
+        =========================== */
+        .content {
+            padding: 30px 20px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* ===========================
+           TITOLI
+        =========================== */
+        .geode {
+            font-weight: bold;
+            color: #2E6DB4;
+            text-shadow:
+                0 0 6px rgba(255, 255, 255, 0.9),
+                0 0 12px rgba(255, 180, 255, 0.7),
+                0 0 18px rgba(150, 200, 255, 0.6),
+                0 0 25px rgba(255, 220, 150, 0.5),
+                0 0 35px rgba(200, 150, 255, 0.4),
+                2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.4rem;
+            letter-spacing: 1px;
+        }
+        
+        .title-light {
+            color: #2E6DB4;
+        }
+        
+        .shadow-contrast {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+            color: #2E6DB4;
+        }
+        
+        /* introduzione */
+        .intro-text {
+            background: rgba(255, 252, 245, 0.88);
+            backdrop-filter: blur(3px);
+            border-radius: 1.8rem;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0 2rem;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #2e3b2c;
+        }
+        
+        .warning-box {
+            background: rgba(180, 80, 50, 0.75);
+            backdrop-filter: blur(4px);
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            margin: 1rem 0 2rem;
+            text-align: center;
+            color: #fff5e0;
+            border-left: 6px solid #ffcc88;
+        }
+        
+        /* griglia schede sintetiche */
+        .synthetic-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .syn-card {
+            background: rgba(255, 250, 240, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 1.8rem;
+            overflow: hidden;
+            flex: 1;
+            min-width: 260px;
+            max-width: 320px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 12px 22px -12px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,245,210,0.7);
+        }
+        
+        .syn-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.3);
+        }
+        
+        .syn-icon {
+            font-size: 2.8rem;
+            text-align: center;
+            padding: 1.2rem 0 0.3rem;
+        }
+        
+        .syn-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: #9b5f26;
+            margin-bottom: 0.3rem;
+        }
+        
+        .syn-sub {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #b8863a;
+            font-style: italic;
+            margin-bottom: 0.8rem;
+        }
+        
+        .syn-desc {
+            padding: 0 1rem 0.8rem;
+            font-size: 0.85rem;
+            color: #5a4a32;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        
+        .syn-props {
+            background: rgba(231, 184, 132, 0.2);
+            padding: 0.6rem;
+            margin: 0.5rem 1rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            color: #7a531e;
+            text-align: center;
+            font-family: monospace;
+        }
+        
+        .comparison-note {
+            background: rgba(44, 62, 44, 0.8);
+            backdrop-filter: blur(6px);
+            border-radius: 1.8rem;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            color: #ffefcf;
+            text-align: center;
+        }
+        
+        .comparison-note h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffdfaa;
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #2d4a2d;
+            background: rgba(255,255,245,0.6);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 6px 18px;
+            border-radius: 50px;
+            backdrop-filter: blur(2px);
+        }
+        
+        @media (max-width: 860px) {
+            .syn-card {
+                min-width: 240px;
+            }
+            .cursive {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 680px) {
+            .syn-card {
+                min-width: 200px;
+            }
+            .syn-name {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    
+    <div class="dropdown">
+        <a href="#">Minerali</a>
+        <div class="dropdown-content">
+            <a href="QA.html">Ametista</a>
+            <a href="CL.html">Celestite</a>
+            <a href="LP.html">Lapislazzuli</a>
+            <a href="OT.html">Occhio di Tigre</a>
+            <a href="QC.html">Quarzo Citrino</a>
+            <a href="QI.html">Quarzo Ialino</a>
+            <a href="QR.html">Quarzo Rosa</a>
+            <a href="TR.html">Tormalina Rosa</a>
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <a href="#">Approfondimenti</a>
+        <div class="dropdown-content">
+            <a href="lavorazione.html">🔨 Lavorazione artigianale</a>
+            <a href="burattatura.html">⚙️ Burattatura</a>
+            <a href="pietre-preziose.html">💎 Pietre preziose e tagli</a>
+            <a href="sintetiche.html">🔬 Pietre sintetiche</a>
+        </div>
+    </div>
+    
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="photo.html">Photogallery</a>
+</nav>
+
+<div class="content">
+    <h1 class="geode title-light shadow-contrast">I Cristalli di</h1>
+    <h1 class="geode cursive title-light shadow-contrast">GiobaR</h1>
+    
+    <div class="intro-text">
+        <p>🔬 <strong>Pietre sintetiche: quando la tecnologia imita la natura</strong> 🔬<br>
+        Non sono "false", né "truffe": le pietre sintetiche hanno la stessa composizione chimica e la stessa struttura cristallina delle loro controparti naturali. La differenza è che vengono <strong>create in laboratorio</strong>, non estratte dalla terra.<br>
+        Negli ultimi decenni, i processi di sintesi sono diventati così sofisticati che distinguere una gemma naturale da una sintetica richiede spesso l'occhio esperto di un gemmologo e strumenti specifici.</p>
+    </div>
+    
+    <div class="warning-box">
+        ⚠️ <strong>Attenzione:</strong> le pietre sintetiche <strong>non hanno inclusioni naturali</strong> (sono "perfette") e spesso risultano <strong>più luminose e brillanti</strong> di quelle genuine. Questa perfezza è proprio il loro principale campanello d'allarme.
+    </div>
+    
+    <!-- Griglia delle pietre sintetiche -->
+    <div class="synthetic-grid">
+        
+        <!-- CZ -->
+        <div class="syn-card">
+            <div class="syn-icon">✨</div>
+            <div class="syn-name">Zirconia Cubica (CZ)</div>
+            <div class="syn-sub">ZrO₂ · il simulante più famoso del diamante</div>
+            <div class="syn-desc">
+                Materiale sintetico otticamente perfetto, senza inclusioni. Ha una durezza di circa 8-8,5 (inferiore al diamante, che è 10). 
+                La sua dispersione luminosa (fuoco) è superiore a quella del diamante, apparendo spesso "troppo colorata" e brillante. Densità molto alta (5,6-6,0 g/cm³), 
+                quindi più pesante del diamante a parità di volume. Utilizzata in gioielleria economica e di costume.
+            </div>
+            <div class="syn-props">🔍 Densità: ~5,7 · Durezza: 8-8,5 · Lucentezza: elevatissima</div>
+        </div>
+        
+        <!-- Moissanite -->
+        <div class="syn-card">
+            <div class="syn-icon">⚡</div>
+            <div class="syn-name">Moissanite</div>
+            <div class="syn-sub">SiC · carburo di silicio</div>
+            <div class="syn-desc">
+                Scoperta nel 1893 nel meteorite di Canyon Diablo, oggi è quasi sempre sintetica. Ha una durezza di 9,25 (quasi quanto il diamante) e un indice di 
+                dispersione ancora più alto del diamante, producendo un "fuoco" arcobaleno evidente. Non ha inclusioni naturali, è trasparente e molto brillante. 
+                Densità inferiore al diamante (3,2 g/cm³). È considerata il miglior simulante attuale, difficile da distinguere a occhio nudo.
+            </div>
+            <div class="syn-props">🔍 Densità: ~3,22 · Durezza: 9,25 · Fuoco doppio rispetto al diamante</div>
+        </div>
+        
+        <!-- Corindone sintetico -->
+        <div class="syn-card">
+            <div class="syn-icon">🔴🔵</div>
+            <div class="syn-name">Corindone sintetico</div>
+            <div class="syn-sub">Al₂O₃ · rubino e zaffiro di laboratorio</div>
+            <div class="syn-desc">
+                Prodotto industrialmente dal 1902 con il metodo Verneuil. Stessa composizione del corindone naturale (ossido di alluminio). Si presenta perfettamente 
+                limpido o con inclusioni caratteristiche (bolle curve, striature di crescita). Spesso più luminoso e saturo dei naturali. Densità e durezza identiche 
+                alla controparte naturale (durezza 9). Usato in orologeria e gioielleria di fascia media.
+            </div>
+            <div class="syn-props">🔍 Densità: ~4,0 · Durezza: 9 · Inclusioni: bolle sferiche</div>
+        </div>
+        
+        <!-- Spinello sintetico -->
+        <div class="syn-card">
+            <div class="syn-icon">💜</div>
+            <div class="syn-name">Spinello sintetico</div>
+            <div class="syn-sub">MgAl₂O₄ · imita molte gemme</div>
+            <div class="syn-desc">
+                Viene prodotto dal 1920 per imitare pietre come acquamarina, topazio, ametista e persino zaffiro. Ha durezza 8, densità 3,6 g/cm³. 
+                Spesso utilizzato come "coltellino svizzero" dei simulanti perché può essere colorato in moltissime tonalità. Non ha inclusioni naturali 
+                e si distingue per un indice di rifrazione inferiore rispetto al corindone sintetico.
+            </div>
+            <div class="syn-props">🔍 Densità: ~3,6 · Durezza: 8 · Diffuso in anelli "costume"</div>
+        </div>
+        
+        <!-- Quarzi idrotermali -->
+        <div class="syn-card">
+            <div class="syn-icon">💧</div>
+            <div class="syn-name">Quarzi idrotermali</div>
+            <div class="syn-sub">SiO₂ · ametista, citrino, quarzo rosa sintetici</div>
+            <div class="syn-desc">
+                Ottenuti per ricrescita in autoclave (processo idrotermale). Hanno le stesse proprietà fisiche del quarzo naturale (durezza 7, densità 2,65). 
+                La differenza sta nella perfezione cristallina e nell'assenza di inclusioni fluide tipiche del quarzo naturale. Spesso i cristalli sintetici 
+                sono più grandi, più limpidi e con un colore troppo uniforme. Usati per pendenti, sfere e oggetti da collezione.
+            </div>
+            <div class="syn-props">🔍 Densità: ~2,65 · Durezza: 7 · Perfezione cristallina sospetta</div>
+        </div>
+        
+        <!-- Vetro -->
+        <div class="syn-card">
+            <div class="syn-icon">🥃</div>
+            <div class="syn-name">Vetro (simulante)</div>
+            <div class="syn-sub">SiO₂ amorfa · il più antico ingannatore</div>
+            <div class="syn-desc">
+                Non è un cristallo, ma un materiale amorfo. Usato da secoli per imitare qualsiasi gemma (dallo smeraldo al diamante). 
+                Si riconosce per la bassa durezza (5-6), la presenza di bolle sferiche e la sensazione calda al tatto. 
+                Densità variabile (2,4-4,2). Al tocco è meno freddo delle gemme vere. Spesso ci si imbatte in "smalti" e "pasta di vetro" in gioielleria vintage.
+            </div>
+            <div class="syn-props">🔍 Durezza: 5-6 · Presenza di bolle · Non cristallino</div>
+        </div>
+        
+    </div>
+    
+    <!-- riflessione conclusiva -->
+    <div class="comparison-note">
+        <h3>🧐 Come riconoscere una sintetica?</h3>
+        <p>Le pietre sintetiche sono spesso <strong>troppo perfette</strong>: non hanno inclusioni, il colore è uniforme e la brillantezza è elevatissima. 
+        Spesso sono anche più luminose delle gemme naturali. Un gemmologo esperto può riconoscerle con una lente d'ingrandimento (alla ricerca di bolle, 
+        striature di crescita o altri indicatori di laboratorio) e con strumenti come il rifrattometro o la bilancia idrostatica (per la densità).</p>
+        <p style="margin-top: 1rem;">⚖️ <strong>Non sono un "difetto":</strong> le sintetiche hanno un loro mercato e un loro fascino, specialmente per chi cerca colori vivaci e 
+        perfezione a prezzi accessibili. L'importante è che vengano sempre dichiarate come tali.</p>
+    </div>
+    
+    <div class="footer-note">
+        🜁 La perfezione assoluta non esiste in natura: quando vedi una gemma impeccabile, potresti avere davanti un prodotto di laboratorio 🜁
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Occhio di Tigre : Forza, Protezione e Chiarezza Decisionale</title>
+    
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(145deg, #f7f2e6 0%, #ece0ce 100%);
+            color: #3d2a1c;
+            line-height: 1.5;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        /* ===========================
+           MENU (come nelle altre pagine)
+        =========================== */
+        nav { 
+            background: #2c3e2c; 
+            overflow: visible; 
+            position: relative; 
+            z-index: 10;
+        }
+        
+        nav > a, .dropdown > a { 
+            color: white; 
+            padding: 14px 20px; 
+            display: inline-block; 
+            text-decoration: none; 
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+        }
+        
+        nav > a:hover, .dropdown > a:hover {
+            background-color: #3e553e;
+        }
+        
+        .dropdown { 
+            display: inline-block; 
+            position: relative; 
+        }
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: #f9f9f9; 
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a { 
+            color: black; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+            text-align: left;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .dropdown-content a:hover { 
+            background-color: #ddd; 
+        }
+        
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 252, 245, 0.96);
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25), 0 1px 4px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        /* Banda dorata / ocra / occhio di tigre */
+        .hero {
+            background: linear-gradient(115deg, #b87c3a 0%, #dba458 45%, #f5c98a 100%);
+            padding: 2rem 2rem 1.8rem;
+            text-align: center;
+            border-bottom: 6px solid #ffefcf;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #2c1e12;
+            text-shadow: 2px 2px 12px rgba(255, 230, 170, 0.8);
+            word-break: keep-all;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #2a1f13;
+            font-style: italic;
+            margin-top: 0.5rem;
+            font-weight: 400;
+            text-shadow: 1px 1px 0 rgba(255, 245, 200, 0.6);
+        }
+
+        .content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        .intro-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2.8rem;
+            align-items: flex-start;
+        }
+
+        .chem-box {
+            flex: 1.5;
+            background: #fffbf5;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.06);
+            border-left: 7px solid #dc9e48;
+            transition: transform 0.2s ease;
+        }
+
+        .chem-box:hover {
+            transform: translateY(-3px);
+        }
+
+        .trad-box {
+            flex: 1;
+            background: #fffbf5;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.06);
+            border-right: 7px solid #e8b363;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            border-left: 5px solid #da953c;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #9b5f26;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 1rem 0 0.7rem 0;
+            color: #c17a30;
+            display: inline-block;
+            border-bottom: 2px dotted #f5d7aa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #fdf1e2 0%, #fdf1e2 40%, transparent 80%);
+            padding: 0.2rem 0.3rem;
+            font-weight: 500;
+            border-radius: 8px;
+        }
+
+        .chem-prop {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.2rem 0;
+        }
+
+        .badge {
+            background: #f6ecdd;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #a96f2e;
+            font-family: monospace;
+        }
+
+        .citazione {
+            font-style: normal;
+            background: #fef6ec;
+            border-radius: 28px;
+            padding: 0.5rem 1.2rem;
+            margin: 1rem 0;
+            font-weight: 500;
+            border-left: 3px solid #dc9e48;
+        }
+
+        footer {
+            background: #f7efe3;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.85rem;
+            color: #b57938;
+            border-top: 1px solid #fae3c2;
+            letter-spacing: 0.3px;
+        }
+
+        hr {
+            margin: 1.2rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #f1cb95, #fbebd0, #f1cb95);
+        }
+
+        /* STILI PER IMMAGINI */
+        .hero-img {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .hero-img img {
+            max-width: 90%;
+            max-height: 220px;
+            width: auto;
+            border-radius: 48px;
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(255, 245, 215, 0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-img img:hover {
+            transform: scale(1.01);
+        }
+
+        .mid-img {
+            margin: 2rem 0 1.8rem 0;
+            text-align: center;
+        }
+
+        .mid-img img {
+            max-width: 85%;
+            border-radius: 32px;
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.18);
+            border: 2px solid #fbdfb5;
+            transition: 0.2s;
+        }
+
+        .floating-img {
+            margin: 1.2rem 0 1.2rem 0;
+            text-align: center;
+        }
+
+        .floating-img img {
+            max-width: 80%;
+            border-radius: 36px;
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.15);
+            border: 2px solid #fae0bb;
+        }
+
+        .img-caption {
+            font-size: 0.75rem;
+            color: #b67d3e;
+            margin-top: 8px;
+            font-style: italic;
+            letter-spacing: 0.3px;
+        }
+
+        .tradizione {
+            background: #fefaf3;
+            border-radius: 1.2rem;
+            padding: 1rem 1.6rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 12px -8px rgba(0, 0, 0, 0.04);
+        }
+
+        .chakra-solare {
+            display: inline-flex;
+            align-items: center;
+            background: #f7e5cf;
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            gap: 6px;
+            margin-top: 0.4rem;
+            color: #b16b2a;
+        }
+
+        @media (max-width: 780px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .intro-grid {
+                flex-direction: column;
+            }
+            .hero-img img {
+                max-height: 160px;
+            }
+            .mid-img img, .floating-img img {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    
+    <div class="dropdown">
+        <a href="#">Minerali</a>
+        <div class="dropdown-content">
+            <a href="QA.html">Ametista</a>
+            <a href="CL.html">Celestite</a>
+            <a href="LP.html">Lapislazzuli</a>
+            <a href="OT.html">Occhio di Tigre</a>
+            <a href="QC.html">Quarzo Citrino</a>
+            <a href="QI.html">Quarzo Ialino</a>
+            <a href="QR.html">Quarzo Rosa</a>
+            <a href="TR.html">Tormalina Rosa</a>
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <a href="#">Approfondimenti</a>
+        <div class="dropdown-content">
+            <a href="lavorazione.html">🔨 Lavorazione artigianale</a>
+            <a href="burattatura.html">⚙️ Burattatura</a>
+            <a href="pietre-preziose.html">💎 Pietre preziose e tagli</a>
+            <a href="sintetiche.html">🔬 Pietre sintetiche</a>
+        </div>
+    </div>
+    
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="photo.html">Photogallery</a>
+</nav>
+
+<div class="container">
+    <div class="hero">
+        <h1>🐅 OCCHIO DI TIGRE 🐅</h1>
+        <div class="sub">pietra di protezione, coraggio e radicamento</div>
+        <!-- IMMAGINE OT01.jpg all'inizio -->
+        <div class="hero-img">
+            <img src="images/OT01.jpg" alt="Occhio di Tigre pietra lucente con bande dorate" onerror="this.style.opacity='0.5'; this.alt='[Immagine OT01 non trovata]'">
+            <div class="img-caption">✨ Sguardo felino – forza, audacia e determinazione ✨</div>
+        </div>
+    </div>
+    <div class="content">
+        <!-- sezione chimica + tradizione romana -->
+        <div class="intro-grid">
+            <div class="chem-box">
+                <div class="section-title">⚗️ Natura chimica</div>
+                <p>L’<strong class="highlight">occhio di tigre</strong> è una varietà pseudomorfa di quarzo appartenente al gruppo delle <strong>pietre occhio</strong>. La sua formula chimica è <strong class="highlight">SiO₂</strong> (biossido di silicio), ma la sua origine è affascinante: si forma per <strong>sostituzione pseudomorfa</strong> di fibre di <strong>riebeckite</strong> (anfibolo asbestiforme) o <strong>crocidolite</strong> da parte di quarzo microcristallino. Il caratteristico <strong>effetto occhio di gatto</strong> (chatoscienza) e le bande dorate e brune sono dovute alla presenza residua di ossidi di ferro, in particolare <strong>limonite</strong>, che si intercalano tra le fibre di quarzo.</p>
+                <div class="chem-prop">
+                    <span class="badge">🔹 Sistema trigonale (quarzo)</span>
+                    <span class="badge">🔹 Durezza Mohs: 6,5 – 7</span>
+                    <span class="badge">🔹 Densità: 2,64 – 2,71 g/cm³</span>
+                    <span class="badge">🔹 Effetto chatoyant (occhio felino)</span>
+                </div>
+                <p>I principali giacimenti si trovano in <strong>Sudafrica</strong>, Australia, India, Myanmar e Stati Uniti. L’occhio di tigre si presenta tipicamente in forma massiva, lucidata a cabochon per esaltare il caratteristico gioco di luce dorato e brunastro. Ne esistono varietà come l’<strong>occhio di bue</strong> (tonalità rossastre per trattamento termico) e l’<strong>occhio di falco</strong> (blu-grigio, con fibre di crocidolite non alterate).</p>
+                <div class="citazione">
+                    🐯 <strong>Curiosità mineralogica</strong> — L’effetto chatoyant (dalla parola francese <em>chat</em>, gatto) è prodotto dalla riflessione della luce sulle fibre parallele del minerale. Ruotando la pietra, la banda luminosa sembra “scivolare” come un occhio felino che scruta.
+                </div>
+            </div>
+            <div class="trad-box">
+                <div class="section-title">📜 Protezione e potere dei guerrieri</div>
+                <p><strong>Era considerato nell'antichità una pietra di protezione e potere.</strong> Per i guerrieri romani era un talismano da portare in battaglia, capace di unire <strong>forza e audacia</strong>. Indossavano amuleti di occhio di tigre per sentirsi invincibili e per mantenere la lucidità anche nel fragore dello scontro. Simboleggiava lo sguardo vigile della tigre, sempre pronto a difendere e ad attaccare con determinazione.</p>
+                <p>In cristalloterapia, l'occhio di tigre è una <strong>pietra di radicamento e coraggio</strong>. Aiuta a trasformare l'ansia in determinazione, l'incertezza in azione chiara, e rafforza la volontà senza cadere nell'aggressività. È particolarmente indicato per chi cerca equilibrio tra forza interiore e controllo emotivo.</p>
+                <div class="chakra-solare">
+                    🔥 Terzo chakra · Plesso Solare (Manipura) 🔥
+                </div>
+                <p><strong>Posizionato sul terzo chakra (plesso solare, Manipura)</strong>, favorisce la fiducia in sé stessi, la chiarezza decisionale, la resilienza e il dinamismo.</p>
+            </div>
+        </div>
+
+        <!-- IMMAGINE OT02.jpg a circa 1/3 della scheda -->
+        <div class="mid-img">
+            <img src="images/OT02.jpg" alt="Occhio di Tigre cabochon chatoyant" onerror="this.style.opacity='0.5'; this.alt='[Immagine OT02 non trovata]'">
+            <div class="img-caption">✦ Sguardo di tigre – da ansia a determinazione, da incertezza ad azione ✦</div>
+        </div>
+
+        <!-- integrazione del testo tradizionale e simbolismo -->
+        <div class="tradizione">
+            <span class="subtitle">🐾 Radicamento, coraggio e volontà equilibrata 🐾</span>
+            <p style="margin-top: 0.5rem;">L’occhio di tigre è celebre per la sua capacità di infondere <strong>forza tranquilla</strong> e <strong>fiducia nelle proprie capacità</strong>. Aiuta a superare le paure irrazionali, a trasformare lo stress in energia costruttiva e a mantenere la concentrazione sugli obiettivi. A differenza di altre pietre “aggressive”, l’occhio di tigre dona determinazione senza eccedere in rabbia o impulsività, insegnando l’arte del guerriero consapevole.</p>
+            <p><strong>Tenere un occhio di tigre sul comodino o vicino al letto si ritiene aiuti a risvegliarsi con maggiore energia e focalizzazione</strong>, rendendo le mattinate più produttive e la mente più lucida. È spesso utilizzato anche da chi pratica sport o attività che richiedono reattività e sangue freddo. Tenuto sulla scrivania aiuta a focalizzarsi con energia sul proprio lavoro.</p>
+            <hr>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;">
+                <div style="flex:1; min-width: 180px;">
+                    <strong>🐅 Benefici simbolici:</strong>
+                    <ul style="margin-top: 8px; margin-left: 1.2rem;">
+                        <li>Protezione e coraggio</li>
+                        <li>Trasforma ansia in determinazione</li>
+                        <li>Rafforza volontà senza aggressività</li>
+                        <li>Fiducia in sé stessi e resilienza</li>
+                    </ul>
+                </div>
+                <div style="flex:1; min-width: 180px;">
+                    <strong>🔮 Utilizzo pratico:</strong>
+                    <ul style="margin-top: 8px; margin-left: 1.2rem;">
+                        <li>Sul comodino per sveglia energica</li>
+                        <li>Sul plesso solare in meditazione</li>
+                        <li>In ufficio per decisioni chiare</li>
+                        <li>Come talismano in situazioni di sfida</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione che integra letteralmente il testo originale fornito -->
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.8rem; margin: 1rem 0 0.5rem 0; border: 1px solid #f8e2be;">
+            <div class="section-title" style="border-left-color: #da953c;">📖 OCCHIO di TIGRE... in breve</div>
+            <div style="font-size: 1rem; line-height: 1.6;">
+                <p style="margin-bottom: 1rem;"><em>“Era considerato nell'antichità una pietra di protezione e potere. Per i guerrieri romani era un talismano da portare in battaglia, capace di unire forza e audacia.</em></p>
+                <p style="margin-bottom: 1rem;">In cristalloterapia, l'occhio di tigre è una pietra di radicamento e coraggio. Aiuta a trasformare l'ansia in determinazione, l'incertezza in azione chiara, e rafforza la volontà senza cadere nell'aggressività.</p>
+                <p style="margin-bottom: 1rem;">Tenere un occhio di tigre sul comodino o vicino al letto si ritiene aiuti a risvegliarsi con maggiore energia e focalizzazione. Tenuto sulla scrivania aiuta a focalizzarsi sul lavoro.</p>
+                <p style="margin-bottom: 1rem;">Posizionato sul terzo chakra (plesso solare, Manipura), favorisce la fiducia in sé stessi, la chiarezza decisionale, la resilienza e il dinamismo.”</p>
+                <hr style="margin: 0.5rem 0 0.2rem 0;">
+                <div style="display: flex; justify-content: flex-end; font-size: 0.85rem; color: #c28133;">✧ lo sguardo che non teme ✧</div>
+            </div>
+        </div>
+
+        <!-- IMMAGINE OT03.jpg a circa 2/3 della scheda -->
+        <div class="floating-img">
+            <img src="images/OT03.jpg" alt="Occhio di Tigre grezzo e lucidato" onerror="this.style.opacity='0.5'; this.alt='[Immagine OT03 non trovata]'">
+            <div class="img-caption">❀ Dinamismo e resilienza – la forza del guerriero consapevole ❀</div>
+        </div>
+
+        <!-- box conclusivi (cura, varietà, scienza e simbolo) -->
+        <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 2rem; justify-content: space-between;">
+            <div style="flex:1; background: #fdf6ec; border-radius: 1rem; padding: 1rem 1.3rem;">
+                <span style="font-size: 1.4rem;">🐅</span>
+                <h3 style="margin: 0.3rem 0 0.5rem 0; font-size: 1.2rem;">Purezza e cura</h3>
+                <p style="font-size: 0.9rem;">L’occhio di tigre è resistente (durezza 6,5-7). Puoi pulirlo con acqua tiepida e sapone neutro. Ricaricalo alla luce solare o al chiaro di luna. Evita urti violenti che potrebbero rompere la struttura fibrosa. È ideale per un uso quotidiano.</p>
+            </div>
+            <div style="flex:1; background: #fdf6ec; border-radius: 1rem; padding: 1rem 1.3rem;">
+                <span style="font-size: 1.4rem;">🌍</span>
+                <h3 style="margin: 0.3rem 0 0.5rem 0; font-size: 1.2rem;">Varietà e giacimenti</h3>
+                <p style="font-size: 0.9rem;">I migliori esemplari provengono dal <strong>Sudafrica</strong> (miniera di Griqualand West). Esistono varietà: <strong>occhio di bue</strong> (rossastro per trattamento termico), <strong>occhio di falco</strong> (blu-grigio), e <strong>occhio di tigre rosso</strong> (naturale, più raro).</p>
+            </div>
+            <div style="flex:1; background: #fdf6ec; border-radius: 1rem; padding: 1rem 1.3rem;">
+                <span style="font-size: 1.4rem;">⚔️</span>
+                <h3 style="margin: 0.3rem 0 0.5rem 0; font-size: 1.2rem;">Scienza e simbolo</h3>
+                <p style="font-size: 0.9rem;">La mineralogia spiega la chatoyance con la struttura fibrosa; la tradizione lo vede come scudo e sprone. Unisce la fisica dei cristalli alla psicologia del coraggio, ideale per chi cerca equilibrio tra azione e riflessione.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        🐅 Occhio di Tigre – pietra di protezione, radicamento e volontà · Durezza 6,5-7 · Effetto chatoyant dorato e bruno 🐅<br>
+        Testo ispirato a fonti mineralogiche, storia romana e repertori di cristalloterapia.
+    </footer>
+</div>
+</body>
+</html>

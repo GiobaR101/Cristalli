@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quarzo Citrino : Pietra del Sole, Prosperità e Vitalità</title>
+    
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(145deg, #fff6e8 0%, #ffe6cf 100%);
+            color: #3d2a1a;
+            line-height: 1.5;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        /* ===========================
+           MENU (come nelle altre pagine)
+        =========================== */
+        nav { 
+            background: #2c3e2c; 
+            overflow: visible; 
+            position: relative; 
+            z-index: 10;
+        }
+        
+        nav > a, .dropdown > a { 
+            color: white; 
+            padding: 14px 20px; 
+            display: inline-block; 
+            text-decoration: none; 
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+        }
+        
+        nav > a:hover, .dropdown > a:hover {
+            background-color: #3e553e;
+        }
+        
+        .dropdown { 
+            display: inline-block; 
+            position: relative; 
+        }
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: #f9f9f9; 
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a { 
+            color: black; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+            text-align: left;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .dropdown-content a:hover { 
+            background-color: #ddd; 
+        }
+        
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 252, 245, 0.94);
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        /* Banda dorata / citrino */
+        .hero {
+            background: linear-gradient(115deg, #d68b2c 0%, #f0b457 45%, #ffdd99 100%);
+            padding: 2rem 2rem 1.8rem;
+            text-align: center;
+            border-bottom: 6px solid #ffedb0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #2e241f;
+            text-shadow: 2px 2px 12px rgba(255, 235, 170, 0.8);
+            word-break: keep-all;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #2b1f12;
+            font-style: italic;
+            margin-top: 0.5rem;
+            font-weight: 400;
+            text-shadow: 1px 1px 0 rgba(255, 245, 200, 0.6);
+        }
+
+        .content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        .intro-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2.8rem;
+            align-items: flex-start;
+        }
+
+        .chem-box {
+            flex: 1.5;
+            background: #fffbf4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.08);
+            border-left: 7px solid #e7a845;
+            transition: transform 0.2s ease;
+        }
+
+        .chem-box:hover {
+            transform: translateY(-3px);
+        }
+
+        .trad-box {
+            flex: 1;
+            background: #fffbf4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.08);
+            border-right: 7px solid #fac270;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            border-left: 5px solid #e7a235;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #b85f1a;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 1rem 0 0.7rem 0;
+            color: #c5772a;
+            display: inline-block;
+            border-bottom: 2px dotted #ffd197;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #fff0dd 0%, #fff0dd 40%, transparent 80%);
+            padding: 0.2rem 0.3rem;
+            font-weight: 500;
+            border-radius: 8px;
+        }
+
+        .chem-prop {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.2rem 0;
+        }
+
+        .badge {
+            background: #f7e9d7;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #714d1e;
+            font-family: monospace;
+        }
+
+        .citazione {
+            font-style: normal;
+            background: #fff2e3;
+            border-radius: 28px;
+            padding: 0.5rem 1.2rem;
+            margin: 1rem 0;
+            font-weight: 500;
+            border-left: 3px solid #e7a845;
+        }
+
+        footer {
+            background: #f7ede1;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.85rem;
+            color: #aa6f2e;
+            border-top: 1px solid #ffe0bb;
+            letter-spacing: 0.3px;
+        }
+
+        hr {
+            margin: 1.2rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #f7c482, #ffeaac, #f7c482);
+        }
+
+        /* STILI PER IMMAGINI (coerenti con lo stile solare) */
+        .hero-img {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .hero-img img {
+            max-width: 90%;
+            max-height: 220px;
+            width: auto;
+            border-radius: 48px;
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.35);
+            border: 3px solid rgba(255, 245, 210, 0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-img img:hover {
+            transform: scale(1.01);
+        }
+
+        .mid-img {
+            margin: 2rem 0 1.8rem 0;
+            text-align: center;
+        }
+
+        .mid-img img {
+            max-width: 85%;
+            border-radius: 32px;
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ffe0b5;
+            transition: 0.2s;
+        }
+
+        .floating-img {
+            margin: 1.2rem 0 1.2rem 0;
+            text-align: center;
+        }
+
+        .floating-img img {
+            max-width: 80%;
+            border-radius: 36px;
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ffe3be;
+        }
+
+        .img-caption {
+            font-size: 0.75rem;
+            color: #b27636;
+            margin-top: 8px;
+            font-style: italic;
+            letter-spacing: 0.3px;
+        }
+
+        .tradizione {
+            background: #fffaf0;
+            border-radius: 1.2rem;
+            padding: 1rem 1.6rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 12px -8px rgba(0, 0, 0, 0.06);
+        }
+
+        .chakra-solare {
+            display: inline-flex;
+            align-items: center;
+            background: #fae2bd;
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            gap: 6px;
+            margin-top: 0.4rem;
+            color: #8b4f1c;
+        }
+
+        @media (max-width: 780px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .intro-grid {
+                flex-direction: column;
+            }
+            .hero-img img {
+                max-height: 160px;
+            }
+            .mid-img img, .floating-img img {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    
+    <div class="dropdown">
+        <a href="#">Minerali</a>
+        <div class="dropdown-content">
+            <a href="QA.html">Ametista</a>
+            <a href="CL.html">Celestite</a>
+            <a href="LP.html">Lapislazzuli</a>
+            <a href="OT.html">Occhio di Tigre</a>
+            <a href="QC.html">Quarzo Citrino</a>
+            <a href="QI.html">Quarzo Ialino</a>
+            <a href="QR.html">Quarzo Rosa</a>
+            <a href="TR.html">Tormalina Rosa</a>
+        </div>
+    </div>
+    
+    <div class="dropdown">
+        <a href="#">Approfondimenti</a>
+        <div class="dropdown-content">
+            <a href="lavorazione.html">🔨 Lavorazione artigianale</a>
+            <a href="burattatura.html">⚙️ Burattatura</a>
+            <a href="pietre-preziose.html">💎 Pietre preziose e tagli</a>
+            <a href="sintetiche.html">🔬 Pietre sintetiche</a>
+        </div>
+    </div>
+    
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="photo.html">Photogallery</a>
+</nav>
+
+<div class="container">
+    <div class="hero">
+        <h1>☀️ QUARZO CITRINO ☀️</h1>
+        <div class="sub">pietra del sole · prosperità, energia e chiarezza mentale</div>
+        <!-- IMMAGINE CT01.png all'inizio con fondo trasparente -->
+        <div class="hero-img">
+            <img src="images/CT01.png" alt="Quarzo Citrino cristallo luminoso" onerror="this.style.opacity='0.5'; this.alt='[Immagine CT01 non trovata]'">
+            <div class="img-caption">✨ La luce solare cristallizzata – Citrino ✨</div>
+        </div>
+    </div>
+    <div class="content">
+        <!-- sezione chimica + tradizione -->
+        <div class="intro-grid">
+            <div class="chem-box">
+                <div class="section-title">⚗️ Natura chimica</div>
+                <p>Il <strong class="highlight">quarzo citrino</strong> è una varietà macrocristallina e <strong>giallo-dorata</strong> del quarzo, con formula <strong class="highlight">SiO₂</strong> (biossido di silicio). Il suo caratteristico colore, che spazia dal giallo tenue all’ambra intenso fino al bruno-dorato, è dovuto principalmente a <strong>impurezze di ferro (Fe³⁺)</strong> in specifici stati di ossidazione, spesso associate a <strong>tracce di alluminio</strong> o centri di colore legati a radiazioni naturali. Gran parte del citrino in commercio deriva da un trattamento termico controllato dell’ametista o del quarzo fumè, ma esistono pregiati esemplari di citrino naturale.</p>
+                <div class="chem-prop">
+                    <span class="badge">🔹 Sistema trigonale</span>
+                    <span class="badge">🔹 Durezza Mohs: 7</span>
+                    <span class="badge">🔹 Densità: 2,65 g/cm³</span>
+                    <span class="badge">🔹 Indice di rifrazione: 1,544–1,553</span>
+                </div>
+                <p>I cristalli di citrino si formano in ambienti <strong>idrotermali</strong> e in <strong>pegmatiti granitiche</strong>, spesso associati a tormalina, feldspati e altri quarzi. Il termine “citrino” deriva dal francese <em>citron</em> (limone), in riferimento alla sua vivace tonalità gialla. Come tutte le varietà di quarzo, è resistente agli agenti atmosferici e viene utilizzato sia in gemmologia che in pratiche energetiche.</p>
+                <div class="citazione">
+                    💛 <strong>Curiosità mineralogica</strong> — Il citrino naturale si distingue da quello artificiale per una leggera <strong>opalescenza</strong> o per inclusioni caratteristiche; spesso presenta un colore più tenue e un effetto “pleocroico” giallo-bianco appena percettibile.
+                </div>
+            </div>
+            <div class="trad-box">
+                <div class="section-title">📜 La “pietra del mercante”</div>
+                <p><strong>Noto nell’antichità come “pietra del mercante”</strong>, veniva spesso tenuto nei portamonete o nelle casse dei negozi come buon auspicio di successo economico. Simbolo di abbondanza e attrazione della ricchezza materiale, il citrino accompagna da secoli chi cerca prosperità, intraprendenza e fortuna negli affari.</p>
+                <p>Nell'ambito della cristalloterapia il quarzo citrino è la pietra dell’<strong>energia, in particolare quella solare, della vitalità, della chiarezza mentale, della prosperità e dell’abbondanza</strong>. La sua vibrazione calda e luminosa stimola l’ottimismo e la forza di volontà.</p>
+                <div class="chakra-solare">
+                    ☀️ Terzo chakra · Plesso Solare (Manipura) ☀️
+                </div>
+                <p><strong>Tradizionalmente è spesso descritto come una pietra ‘auto purificante’</strong>, capace di mantenere una vibrazione luminosa e solare senza bisogno di frequenti ricariche. Se posizionata sul terzo chakra (plesso solare) stimola l'energia, la volontà e la vitalità.</p>
+            </div>
+        </div>
+
+        <!-- IMMAGINE CT02.jpg a circa 1/3 della scheda -->
+        <div class="mid-img">
+            <img src="images/CT02.jpg" alt="Citrino sfaccettato o drusa dorata" onerror="this.style.opacity='0.5'; this.alt='[Immagine CT02 non trovata]'">
+            <div class="img-caption">✦ Calore e trasparenza – l’energia solare del Citrino ✦</div>
+        </div>
+
+        <!-- integrazione del testo tradizionale e simbolismo -->
+        <div class="tradizione">
+            <span class="subtitle">🌻 Prosperità, volontà e luce interiore 🌻</span>
+            <p style="margin-top: 0.5rem;">Il quarzo citrino è da sempre considerato un potente alleato per chi desidera attrarre successo, realizzazione e gioia di vivere. La sua energia dorata stimola il plesso solare, centro dell’azione e della fiducia in se stessi. Grazie alla sua presunta capacità “auto purificante”, il citrino non accumula vibrazioni negative, rimanendo sempre chiaro e attivo come un piccolo sole portatile.</p>
+            <p>Nelle pratiche antiche e moderne, viene utilizzato per allontanare la sensazione di stanchezza cronica, per rafforzare la concentrazione e per favorire decisioni lucide in campo professionale. È una pietra che invita all’ottimismo concreto, al senso di abbondanza e all’autostima.</p>
+            <hr>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;">
+                <div style="flex:1; min-width: 180px;">
+                    <strong>💼 Benefici simbolici:</strong>
+                    <ul style="margin-top: 8px; margin-left: 1.2rem;">
+                        <li>Attrae prosperità e successo</li>
+                        <li>Stimola chiarezza mentale</li>
+                        <li>Rafforza volontà e determinazione</li>
+                        <li>Porta ottimismo e vitalità</li>
+                    </ul>
+                </div>
+                <div style="flex:1; min-width: 180px;">
+                    <strong>🔮 Utilizzo pratico:</strong>
+                    <ul style="margin-top: 8px; margin-left: 1.2rem;">
+                        <li>Nel portafoglio o vicino alla cassa</li>
+                        <li>Sul plesso solare durante la meditazione</li>
+                        <li>In ufficio per favorire concentrazione</li>
+                        <li>Come gioiello per energia quotidiana</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione che integra letteralmente il testo originale fornito -->
+        <div style="background: #fffef7; border-radius: 24px; padding: 1.8rem; margin: 1rem 0 0.5rem 0; border: 1px solid #ffe2b5;">
+            <div class="section-title" style="border-left-color: #f0b35b;">📖 QUARZO CITRINO... in breve</div>
+            <div style="font-size: 1rem; line-height: 1.6;">
+                <p style="margin-bottom: 1rem;"><em>“Noto nell'antichità come 'pietra del mercante', veniva spesso tenuta nei portamonete o nelle casse dei negozi come buon auspicio di successo economico.</em></p>
+                <p style="margin-bottom: 1rem;">Nell'ambito della cristalloterapia il quarzo citrino è la pietra dell'energia, in particolare quella solare, della vitalità, della chiarezza mentale, della prosperità e dell'abbondanza. Tenuto sulla scrivania dona energia e dinamicità sul lavoro.</p>
+                <p style="margin-bottom: 1rem;">Tradizionalmente è spesso descritto come una pietra ‘auto purificante’, capace di mantenere una vibrazione luminosa e solare.</p>
+                <p style="margin-bottom: 1rem;">Se posizionata sul terzo chakra (plesso solare) stimola l' energia, la volontà e la vitalità.”</p>
+                <hr style="margin: 0.5rem 0 0.2rem 0;">
+                <div style="display: flex; justify-content: flex-end; font-size: 0.85rem; color: #c2772a;">✧ energia senza tempo ✧</div>
+            </div>
+        </div>
+
+        <!-- IMMAGINE CT03.jpg a circa 2/3 della scheda -->
+        <div class="floating-img">
+            <img src="images/CT03.jpg" alt="Citrino grezzo o geode dorato" onerror="this.style.opacity='0.5'; this.alt='[Immagine CT03 non trovata]'">
+            <div class="img-caption">❀ L’energia solare del Citrino – prosperità e chiarezza ❀</div>
+        </div>
+
+        <!-- box conclusivi (cura, varietà, scienza e simbolo) -->
+        <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 2rem; justify-content: space-between;">
+            <div style="flex:1; background: #fff5e8; border-radius: 1rem; padding: 1rem 1.3rem;">
+                <span style="font-size: 1.4rem;">💛</span>
+                <h3 style="margin: 0.3rem 0 0.5rem 0; font-size: 1.2rem;">Purezza e cura</h3>
+                <p style="font-size: 0.9rem;">Pulisci il citrino con acqua tiepida e sapone neutro. A differenza di altre gemme, è considerato “auto purificante”, ma puoi ricaricarlo alla luce solare del mattino per esaltarne la vibrazione dorata. Evita sbalzi termici.</p>
+            </div>
+            <div style="flex:1; background: #fff5e8; border-radius: 1rem; padding: 1rem 1.3rem;">
+                <span style="font-size: 1.4rem;">🌎</span>
+                <h3 style="margin: 0.3rem 0 0.5rem 0; font-size: 1.2rem;">Giacimenti e varietà</h3>
+                <p style="font-size: 0.9rem;">Citrino naturale si trova in Brasile, Madagascar, Russia e Spagna. Il citrino “Madeira” presenta una tonalità arancio-rossastra, molto apprezzata in gemmologia. Spesso confuso con il topazio imperiale, ma se ne differenzia per durezza e peso specifico.</p>
+            </div>
+            <div style="flex:1; background: #fff5e8; border-radius: 1rem; padding: 1rem 1.3rem;">
+                <span style="font-size: 1.4rem;">⚡</span>
+                <h3 style="margin: 0.3rem 0 0.5rem 0; font-size: 1.2rem;">Scienza e simbolo</h3>
+                <p style="font-size: 0.9rem;">La mineralogia conferma l’origine del colore tramite impurezze di ferro e trattamenti termici; la tradizione lo associa al successo e alla forza vitale. Un perfetto esempio di come una gemma possa unire chimica e immaginario positivo.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        ☀️ Quarzo Citrino – pietra del sole, dell'abbondanza e della volontà · Durezza 7 · Colore dal giallo limone all'ambra profondo ☀️<br>
+        Testo ispirato a fonti mineralogiche e repertori di cristalloterapia.
+    </footer>
+</div>
+</body>
+</html>
