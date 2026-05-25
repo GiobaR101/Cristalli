@@ -227,9 +227,10 @@
         .cut-img {
             width: 100%;
             aspect-ratio: 1 / 1;
-            object-fit: cover;
+            object-fit: contain; /* invece di cover */
             display: block;
             border-bottom: 2px solid #e7c184;
+            background: #f0ede5;   /* colore neutro di sfondo */
         }
         
         .cut-name {
@@ -263,6 +264,9 @@
             border-radius: 1rem;
             margin-bottom: 0.5rem;
             border: 2px solid #e7c184;
+            object-fit: contain;    /* aggiunto questa */
+            background: #f0ede5;    /* sfondo neutro */
+            aspect-ratio: 1 / 1;    /* mantiene il rapporto quadrato */
         }
         
         /* link a sintetiche */
